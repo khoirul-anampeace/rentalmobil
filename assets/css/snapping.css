@@ -1,0 +1,11 @@
+.daftar-akun {
+  width: 100% !important;
+  height: 100% !important;
+  scroll-snap-type: x mandatory !important;
+  overflow-x: scroll !important;
+}
+.daftar-akun section {
+  width: 100% !important;
+  height: 100% !important;
+  scroll-snap-align: start !important;
+}
