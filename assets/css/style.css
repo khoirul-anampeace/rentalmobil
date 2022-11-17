@@ -167,7 +167,7 @@ main a .scrolltop i {
 
 .content h1 {
   font-family: "nunito", sans-serif;
-  font-size: 44px;
+  font-size: 2.2rem;
   text-transform: capitalize;
   line-height: 60px;
 }
@@ -192,7 +192,7 @@ main a .scrolltop i {
   width: 32rem;
 }
 #about {
-  background-color: #ffffff;
+  background-color: #fff;
 }
 #about .row ul {
   list-style: none;
@@ -213,6 +213,7 @@ main a .scrolltop i {
 
 /* Gallery */
 #gallery {
+  background-color: #fff;
   padding-top: 150px;
 }
 #gallery .container .title {
@@ -225,7 +226,7 @@ main a .scrolltop i {
 }
 
 #contact {
-  background-color: #f7f7f7;
+  background-color: #fff;
 }
 
 footer {
