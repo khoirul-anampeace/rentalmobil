@@ -20,9 +20,7 @@
 
                     <img src="assets/images/logomerpati.png" alt="">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -56,84 +54,18 @@
         </a>
         <!-- ScrollTOp -->
 
-        <form class="g-3 daftar-akun">
-            <section class="content" id="form1">
-                <div class="container">
-                    <h1>Daftar Akun</h1>
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <label for="inputNama" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="inputNama">
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <label for="inputNama" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="inputNama">
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <label for="inputNama" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="inputNama">
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <label for="inputNama" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="inputNama">
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <label for="inputNama" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="inputNama">
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <label for="inputNama" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="inputNama">
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <a href="index.html" class="btn btn-danger">Batalkan</a>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <a href="#form2" class="btn btn-primary float-end">Selanjutnya</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <?php
 
-            <!-- Form2 -->
-            <section class="content" id="form2">
-                <div class="container">
-                    <h1>Daftar Akun</h1>
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <label for="inputNama" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="inputNama">
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <label for="inputNama" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="inputNama">
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <label for="inputNama" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="inputNama">
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <label for="inputNama" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="inputNama">
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <label for="inputNama" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="inputNama">
-                        </div>
-                        <div class="col-md-6 mb-4">
-                            <label for="inputNama" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="inputNama">
-                        </div>
-                        <div class="col-md-6">
-                            <a href="#" class="btn btn-secondary">Kembali</a>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="#" class="btn btn-primary float-end">Selanjutnya</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </form>
+        $pagedaftar = @$_GET['pagedaftar'];
+        $haldaftar = "daftar/$pagedaftar.php";
+        $daftar = "daftar/daftar-1.php";
+        if (!empty($pagedaftar) && file_exists($haldaftar)) {
+            include $haldaftar;
+        } else {
+            include $daftar;
+        }
+
+        ?>
     </main>
 
 
@@ -158,8 +90,7 @@
                         </li>
                         <li class="ms-3">
                             <a href="http://jti.polije.ac.id/">
-                                <img src="assets/images/profileImage/logo_jti.png"
-                                    style="width: 100px; margin-top:8px;">
+                                <img src="assets/images/profileImage/logo_jti.png" style="width: 100px; margin-top:8px;">
                             </a>
                         </li>
                     </ul>

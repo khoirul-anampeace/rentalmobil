@@ -19,9 +19,7 @@
 
                     <img src="assets/images/logomerpati.png" alt="">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -37,8 +35,8 @@
                         </li>
                     </ul>
                     <div class="d-flex">
-                        <a href="daftar.html" class="btn navbutton-white me-3">daftar</a>
-                        <a href="" class="btn navbutton-white">login</a>
+                        <a href="daftar.php" class="btn navbutton-white me-3">daftar</a>
+                        <a href="login.php" class="btn navbutton-white">login</a>
                     </div>
                 </div>
             </div>
@@ -233,8 +231,7 @@
                         </li>
                         <li class="ms-3">
                             <a href="http://jti.polije.ac.id/">
-                                <img src="assets/images/profileImage/logo_jti.png"
-                                    style="width: 100px; margin-top:8px;">
+                                <img src="assets/images/profileImage/logo_jti.png" style="width: 100px; margin-top:8px;">
                             </a>
                         </li>
                     </ul>
