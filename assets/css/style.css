@@ -272,6 +272,47 @@ footer ul.horizontal li i {
   color: #fff;
 }
 
+/* LOGIN.php */
+#login {
+  padding-top: 30px;
+  padding-bottom: 50px;
+  background-color: #fff;
+}
+#login .box {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 15px;
+}
+#login .img {
+  background: url(../images/login-img.png);
+  background-size: cover;
+  background-position: cent;
+  height: 90vh;
+  border-radius: 15px 0 0 15px;
+}
+#login .form {
+  padding: 80px;
+}
+#login .form h1 {
+  text-align: center;
+}
+#login .btn {
+  width: 100%;
+}
+#login .login-logo {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+}
+#login .login-logo img {
+  width: 250px;
+  height: auto;
+}
+#login .img {
+  position: relative;
+}
+
+/* LOGIN.php */
+
 /* Responsive */
 @media screen and (max-width: 768px) {
   header .navbar-nav a,
@@ -366,6 +407,19 @@ footer ul.horizontal li i {
   #article .container .row .content-article {
     margin-bottom: 20px;
   }
+
+  /* LOGIN */
+  #login {
+    padding-top: 180px !important;
+    padding: 30px;
+  }
+  #login .img {
+    display: none;
+  }
+  #login .form {
+    padding: 30px;
+  }
+  /* LOGIN */
 }
 
 /* page */

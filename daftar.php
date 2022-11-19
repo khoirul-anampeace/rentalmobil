@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container navsmooth">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
 
                     <img src="assets/images/logomerpati.png" alt="">
                 </a>
@@ -26,13 +26,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link link-black-daftar" href="index.html#about">About</a>
+                            <a class="nav-link link-black-daftar" href="index.php#about">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-black-daftar" href="index.html#gallery">Gallery</a>
+                            <a class="nav-link link-black-daftar" href="index.php#gallery">Gallery</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link-black-daftar" href="index.html#contact">Contact</a>
+                            <a class="nav-link link-black-daftar" href="index.php#contact">Contact</a>
                         </li>
                     </ul>
                     <!-- <div class="d-flex">
