@@ -8,7 +8,6 @@
     <title>Merpati Rent Car</title>
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/snapping.css">
 </head>
 
 <body>
@@ -16,21 +15,18 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light" id="main">
             <div class="container navsmooth">
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="index.php">
                     <img src="assets/images/logomerpati.png" alt="">
                 </a>
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="nav-item dropdown navbarrow">
+                    <a class="nav-link dropdown-toggle " href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="assets/images/users/avatar-2.jpg" width="35px" height="35px" style="border-radius: 50px;">
-
+                        <p>Khoirul Anam</p>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="#">Ubah Profil</a></li>
+                        <li><a class="dropdown-item" href="#">History Transaksi</a></li>
+                        <li><a class="dropdown-item" href="#">Log Out</a></li>
                     </ul>
                 </div>
             </div>
