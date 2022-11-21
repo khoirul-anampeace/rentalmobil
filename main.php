@@ -36,14 +36,14 @@
 
     <main>
         <!-- ScrollTOp -->
-        <a href="#home">
+        <a href="#">
             <div class="scrolltop" id="scrolltop">
                 <i class="fa-solid fa-arrow-up"></i>
             </div>
         </a>
         <!-- ScrollTOp -->
-
         <?php
+
 
         $page = @$_GET['page'];
         $hal = "page/$page.php";

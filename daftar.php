@@ -23,7 +23,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link link-black-daftar" href="index.php#about">Log Out</a>
                         </li>
@@ -33,7 +33,7 @@
                         <li class="nav-item">
                             <a class="nav-link link-black-daftar" href="index.php#contact">Contact</a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <!-- <div class="d-flex">
                         <a href="daftar.html" class="btn navbutton-blue-daftar me-3">daftar</a>
                         <a href="" class="btn navbutton-blue-daftar">login</a>

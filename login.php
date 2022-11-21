@@ -14,10 +14,10 @@
     <div id="login">
         <div class="container">
             <div class="row box">
+                <a class="login-logo" href="index.php">
+                    <img src="assets/images/logomerpati.png" alt="">
+                </a>
                 <div class="col-md-6 col-sm-12 img">
-                    <a class="login-logo" href="index.php">
-                        <img src="assets/images/logomerpati.png" alt="">
-                    </a>
                 </div>
                 <div class="col-md-6 col-sm-12 form">
                     <h1>LOGIN</h1>
