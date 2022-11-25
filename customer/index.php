@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merpati Rent Car</title>
-    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>
@@ -16,16 +16,16 @@
         <nav class="navbar navbar-expand-lg navbar-light" id="main">
             <div class="container navsmooth">
                 <a class="navbar-brand" href="index.php">
-                    <img src="assets/images/logomerpati.png" alt="">
+                    <img src="../assets/images/logomerpati.png" alt="">
                 </a>
                 <div class="nav-item dropdown navbarrow">
                     <a class="nav-link dropdown-toggle " href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="assets/images/users/avatar-2.jpg" width="35px" height="35px" style="border-radius: 50px;">
+                        <img src="../assets/images/users/avatar-2.jpg" width="35px" height="35px" style="border-radius: 50px;">
                         <p>Khoirul Anam</p>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                         <li><a class="dropdown-item" href="#">Ubah Profil</a></li>
-                        <li><a class="dropdown-item" href="#">History Transaksi</a></li>
+                        <li><a class="dropdown-item" href=".?page=historiTransaksi">History Transaksi</a></li>
                         <li><a class="dropdown-item" href="#">Log Out</a></li>
                     </ul>
                 </div>
@@ -74,12 +74,12 @@
                     <ul class="horizontal">
                         <li>
                             <a href="https://polije.ac.id/">
-                                <img src="assets/images/profileImage/logo_polije.png">
+                                <img src="../assets/images/profileImage/logo_polije.png">
                             </a>
                         </li>
                         <li class="ms-3">
                             <a href="http://jti.polije.ac.id/">
-                                <img src="assets/images/profileImage/logo_jti.png" style="width: 100px; margin-top:8px;">
+                                <img src="../assets/images/profileImage/logo_jti.png" style="width: 100px; margin-top:8px;">
                             </a>
                         </li>
                     </ul>
@@ -117,10 +117,10 @@
     </footer>
 
     <!-- Script -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/script.js"></script>
     <script src="https://kit.fontawesome.com/62bf956e5e.js" crossorigin="anonymous"></script>
-    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="../assets/js/vendor/bootstrap.min.js"></script>
 </body>
 
 </html>

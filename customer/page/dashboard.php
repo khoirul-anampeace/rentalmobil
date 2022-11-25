@@ -2,16 +2,16 @@
     <div class="container" id="">
         <h1>Pilih Layanan Rental</h1>
         <div class="row pilihlayanan">
-            <a href="#" class="col-md-4 col-sm-12">
+            <a href=".?page=mobilLepasKunci" class="col-md-4 col-sm-12">
                 <div>
-                    <img src="assets/images/profileImage/img-lepaskunci.png">
+                    <img src="../assets/images/profileImage/img-lepaskunci.png">
                     <h3>Lepas Kunci</h3>
                     <p>Merupakan layanan lepas kunci dengan beberapa persyaratan yang harus dipenuhi</p>
                 </div>
             </a>
             <a href="#" class="col-md-4 col-sm-12">
                 <div>
-                    <img src="assets/images/profileImage/img-mobilsopir.png">
+                    <img src="../assets/images/profileImage/img-mobilsopir.png">
                     <h3>Mobil + Driver</h3>
                     <p>Merupakan layanan sewa mobil + driver</p>
                 </div>
@@ -21,7 +21,7 @@
         <div class="row histori">
             <a href="#" class="col-md-6 col-sm-12 row">
                 <div class="col-4 img-histori">
-                    <img src="assets/images/car/cadilacone.jpg">
+                    <img src="../assets/images/car/cadilacone.jpg">
                 </div>
                 <div class="col-8  text-histori">
                     <h5>Limousine Cadilac One</h5>
