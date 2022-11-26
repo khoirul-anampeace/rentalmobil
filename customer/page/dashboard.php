@@ -19,7 +19,7 @@
         </div>
         <h1>Histori Transaksi</h1>
         <div class="row histori">
-            <a href="#" class="col-md-6 col-sm-12 row">
+            <div class="col-md-6 col-sm-12 row box">
                 <div class="col-4 img-histori">
                     <img src="../assets/images/car/cadilacone.jpg">
                 </div>
@@ -27,9 +27,9 @@
                     <h5>Limousine Cadilac One</h5>
                     <p>NO PP : P 3110 PQR</p>
                     <p>Status : “Menunggu tim survei ke alamat anda”</p>
-                    <button class="btn btn-danger">BATALKAN</button>
+                    <a href="" class="btn btn-danger">BATALKAN</a>
                 </div>
-            </a>
+            </div>
         </div>
     </div>
 </section>

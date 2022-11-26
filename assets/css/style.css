@@ -373,7 +373,7 @@ footer ul.horizontal li i {
 #mainDashboard .histori {
   margin: 0;
 }
-#mainDashboard .histori a {
+#mainDashboard .histori .box {
   color: #000;
   margin: 0;
   padding: 0;
@@ -382,22 +382,22 @@ footer ul.horizontal li i {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   transition: 0.3s;
 }
-#mainDashboard .histori a:hover {
+#mainDashboard .histori .box:hover {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px;
   transition: 0.3s;
 }
-#mainDashboard .histori a .img-histori {
+#mainDashboard .histori .box .img-histori {
   padding: 0;
 }
-#mainDashboard .histori a .img-histori img {
+#mainDashboard .histori .box .img-histori img {
   border-radius: 8px 0 0 8px;
   width: 100%;
   height: 100%;
 }
-#mainDashboard .histori a .text-histori {
+#mainDashboard .histori .box .text-histori {
   padding: 15px;
 }
-#mainDashboard .histori a .text-histori p {
+#mainDashboard .histori .box .text-histori p {
   padding: 0;
   margin: 5px 0;
   color: rgb(133, 133, 133);
@@ -445,6 +445,70 @@ footer ul.horizontal li i {
 }
 #mainMobil .pilihmobil .mobil .text-pilihmobil .btn {
   padding: 8px 45px;
+}
+/* Main Mobil Detail */
+#mainMobil .detailmobil {
+  margin: 0;
+  padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding-bottom: 30px;
+}
+#mainMobil .detailmobil div {
+  padding: 0;
+  margin: 0;
+}
+#mainMobil .detailmobil .detail {
+  padding: 15px;
+}
+#mainMobil .detailmobil .kondisiunit {
+  margin: 0;
+}
+#mainMobil .detailmobil .kondisiunit div {
+  padding: 0 15px;
+}
+#mainMobil .detailmobil .img-detailmobil img,
+#mainMobil .detailmobil .kondisiunit img {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+}
+#mainMobil .detailmobil table.catatan {
+}
+#mainMobil .detailmobil .kondisiunit p {
+  text-align: center;
+}
+#mainMobil .detailmobil .text-detailmobil {
+  padding: 0 15px;
+}
+#mainMobil .detailmobil .text-detailmobil table {
+  width: 100%;
+}
+#mainMobil .detailmobil .text-detailmobil table tr td {
+  /* background-color: #ff7979; */
+  vertical-align: middle;
+  /* border: 2px black solid; */
+}
+#mainMobil .detailmobil .text-detailmobil table tr td.first {
+  width: 20%;
+}
+#mainMobil .detailmobil .text-detailmobil table tr td p {
+  font-weight: 700;
+  color: rgb(101, 101, 101);
+}
+#mainMobil .detailmobil .text-detailmobil table tr {
+  border-bottom: 15px rgba(0, 0, 0, 0) solid;
+}
+.text-detailmobil table tr {
+  padding: 10px 0;
+}
+#mainMobil .detailmobil .text-detailmobil table tr td h5,
+#mainMobil .detailmobil .text-detailmobil table tr td p {
+  margin: 0;
+}
+#mainMobil .detailmobil .text-detailmobil table tr td p {
+}
+#mainMobil .detailmobil .button-detailmobil {
+  /* margin-top: 15px; */
 }
 /* MAIN mobil */
 
@@ -581,6 +645,17 @@ footer ul.horizontal li i {
 
   #mainMobil .pilihmobil .mobil .text-pilihmobil .btn {
     padding: 6px 18px;
+  }
+  /* MAIN detailmobil */
+
+  #mainMobil .detailmobil .text-detailmobil {
+    padding: 10px 0;
+  }
+  #mainMobil .detailmobil .text-detailmobil table tr td.first {
+    width: 25%;
+  }
+  #mainMobil .detailmobil .kondisiunit div {
+    margin-bottom: 40px;
   }
   /* MAIN */
 }
