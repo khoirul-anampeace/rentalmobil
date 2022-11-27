@@ -26,7 +26,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                         <li><a class="dropdown-item" href="#">Ubah Profil</a></li>
                         <li><a class="dropdown-item" href=".?page=historiTransaksi">History Transaksi</a></li>
-                        <li><a class="dropdown-item" href="#">Log Out</a></li>
+                        <li><a class="dropdown-item" href="../index.php">Log Out</a></li>
                     </ul>
                 </div>
             </div>
