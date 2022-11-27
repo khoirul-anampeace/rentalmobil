@@ -1,6 +1,6 @@
 <section class="content" id="mainMobil">
     <div class="container" id="">
-        <h1>Pilih Mobil</h1>
+        <h1>Detail Mobil</h1>
         <div class="row detailmobil">
             <div class="row detail">
                 <div class="col-md-3 img-detailmobil">
