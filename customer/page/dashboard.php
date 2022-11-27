@@ -1,4 +1,4 @@
-<section class="content" id="mainDashboard">
+<section class="content customer" id="mainDashboard">
     <div class="container" id="">
         <h1>Pilih Layanan Rental</h1>
         <div class="row pilihlayanan">

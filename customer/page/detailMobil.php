@@ -1,4 +1,4 @@
-<section class="content" id="mainMobil">
+<section class="content customer" id="mainMobil">
     <div class="container" id="">
         <h1>Detail Mobil</h1>
         <div class="row detailmobil">
@@ -33,7 +33,7 @@
                                 <h5>Nomer Polisi</h5>
                             </td>
                             <td>
-                                <p>: 300.000</p>
+                                <p>: P 8712 PEQ</p>
                             </td>
                         </tr>
                         <tr>

@@ -1,4 +1,4 @@
-<section class="content" id="mainDashboard">
+<section class="content customer" id="mainDashboard">
     <div class="container" id="">
         <h1>Histori Transaksi</h1>
         <div class="row histori">
@@ -46,6 +46,6 @@
                     <a href="#" class="btn btn-danger">BATALKAN</a>
                 </div>
             </div>
-        </div class="mb-5">
+        </div>
     </div>
 </section>
