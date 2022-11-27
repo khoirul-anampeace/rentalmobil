@@ -299,14 +299,14 @@ footer ul.horizontal li i {
 }
 #login .box {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  border-radius: 15px;
+  border-radius: 8px;
 }
 #login .img {
   background: url(../images/login-img.png);
   background-size: cover;
   background-position: cent;
   height: 90vh;
-  border-radius: 15px 0 0 15px;
+  border-radius: 8px 0 0 8px;
 }
 #login .form {
   padding: 80px;
@@ -410,23 +410,27 @@ footer ul.horizontal li i {
   margin: 0;
 }
 #mainMobil .pilihmobil .mobil {
-  height: 150px;
   color: #000;
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 8px;
-  text-decoration: none;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-  transition: 0.3s;
+  margin: 0;
+  /* padding: 10px; */
+  /* text-decoration: none; */
 }
-#mainMobil .pilihmobil .mobil:hover {
+#mainMobil .pilihmobil .mobil .box {
+  border-radius: 8px;
+  transition: 0.3s;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  /* background-color: #e36060; */
+  padding: 15px;
+  /* margin: 0; */
+}
+#mainMobil .pilihmobil .mobil .box:hover {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px;
   transition: 0.3s;
 }
-#mainMobil .pilihmobil .mobil .img-pilihmobil {
+#mainMobil .pilihmobil .mobil .box .img-pilihmobil {
   padding: 0;
 }
-#mainMobil .pilihmobil .mobil .img-pilihmobil img {
+#mainMobil .pilihmobil .mobil .box .img-pilihmobil img {
   border-radius: 8px;
   width: 100%;
   height: 100%;
@@ -434,16 +438,16 @@ footer ul.horizontal li i {
 /* #mainMobil .pilihmobil a .text-pilihmobil {
   padding: 15px;
 } */
-#mainMobil .pilihmobil .mobil .text-pilihmobil p.harga {
+#mainMobil .pilihmobil .mobil .box .text-pilihmobil p.harga {
   padding: 0;
   margin: 5px 0;
   font-weight: 700;
   color: rgb(133, 133, 133);
 }
-#mainMobil .pilihmobil .mobil .text-pilihmobil h5 {
+#mainMobil .pilihmobil .mobil .box .text-pilihmobil h5 {
   height: 50px;
 }
-#mainMobil .pilihmobil .mobil .text-pilihmobil .btn {
+#mainMobil .pilihmobil .mobil .box .text-pilihmobil .btn {
   padding: 8px 45px;
 }
 /* Main Mobil Detail */
@@ -512,6 +516,88 @@ footer ul.horizontal li i {
   /* margin-top: 15px; */
 }
 /* MAIN mobil */
+
+/* Checkout */
+
+#checkout .checkoutlepaskunci {
+  margin: 0;
+}
+#checkout .checkoutlepaskunci .checkleft {
+  /* background-color: #111a3f; */
+  margin: 0;
+  padding: 0 15px 0 0;
+}
+#checkout .checkoutlepaskunci .checkright {
+  padding: 0;
+  margin: 0;
+}
+/* #checkout .checkoutlepaskunci .checkleft,
+#checkout .checkoutlepaskunci .checkright {
+} */
+#checkout .checkoutlepaskunci .checkleft .box,
+#checkout .checkoutlepaskunci .checkright .box {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  /* background-color: #ff7979; */
+  border-radius: 8px;
+  padding: 15px;
+}
+#checkout .checkoutlepaskunci .checkleft img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+#checkout .checkoutlepaskunci .checkleft .box .titleCheckout {
+  background: url(../images/bgcheckout.png);
+  padding: 40px 15px;
+  background-size: cover;
+  background-position: right;
+  color: #fff;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+#checkout .checkoutlepaskunci .checkleft .box h6 {
+  padding: 8px 0;
+  font-weight: 700;
+  color: rgb(118, 118, 118);
+}
+#checkout .checkoutlepaskunci .checkleft .box ol {
+  /* padding: 0; */
+  color: rgb(112, 112, 112);
+}
+#checkout .checkoutlepaskunci .checkleft .box .flexnih {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#checkout .checkoutlepaskunci .checkleft .box .flexnih .inputnih input {
+  padding: 10px;
+}
+#checkout .checkoutlepaskunci .checkleft .box .flexnih .labelnih h6 {
+  margin: 0;
+  margin-left: 15px;
+}
+#checkout .checkoutlepaskunci .checkright .box table {
+  /* background-color: #0b88d1; */
+  margin: 15px 0;
+  width: 100%;
+}
+#checkout .checkoutlepaskunci .checkright .box table tr td.first {
+  width: 35%;
+}
+#checkout .checkoutlepaskunci .checkright .box table tr td p {
+  font-weight: 700;
+  color: rgb(118, 118, 118);
+}
+#checkout .checkoutlepaskunci .checkright .box img.barcode {
+  width: 100%;
+  height: 50px;
+  margin: 15px 0;
+}
+#checkout .checkoutlepaskunci .checkright .btn {
+  width: 100%;
+}
+
+/* Checkout */
 
 /* Responsive */
 @media screen and (max-width: 768px) {
@@ -644,7 +730,18 @@ footer ul.horizontal li i {
     margin-bottom: 100px;
   }
 
-  #mainMobil .pilihmobil .mobil .text-pilihmobil .btn {
+  #mainMobil .pilihmobil .mobil .box {
+    margin: 0;
+  }
+  #mainMobil .pilihmobil .mobil .box .text-pilihmobil {
+    padding: 0;
+  }
+  #mainMobil .pilihmobil .mobil .box .text-pilihmobil h5 {
+    margin-top: 5px;
+  }
+  #mainMobil .pilihmobil .mobil .box .text-pilihmobil .btn {
+    margin: 5px 0;
+    width: 100%;
     padding: 6px 18px;
   }
   /* MAIN detailmobil */
@@ -658,7 +755,18 @@ footer ul.horizontal li i {
   #mainMobil .detailmobil .kondisiunit div {
     margin-bottom: 40px;
   }
+
+  /* Checkout */
+
+  #checkout .checkoutlepaskunci .checkleft {
+    padding: 0;
+    margin-bottom: 15px;
+  }
   /* MAIN */
+
+  .customer {
+    padding-bottom: 100px;
+  }
 }
 
 /* page */
