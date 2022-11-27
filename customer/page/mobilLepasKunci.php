@@ -10,7 +10,7 @@
                     <h5>Limousine Cadilac One </h5>
                     <p class="harga">Rp 300.000,</p>
                     <a href=".?page=detailMobil" class="btn btn-secondary">Detail</a>
-                    <a href="" class="btn btn-primary float-end">Book</a>
+                    <a href=".?page=checkoutLepasKunci" class="btn btn-primary float-end">Book</a>
                 </div>
             </div>
         </div>
