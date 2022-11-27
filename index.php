@@ -82,7 +82,7 @@
                         <img src="assets/images/profileImage/img-slide3.jpg" class="d-block" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h1>Service Terbaik</h1>
-                            <p>Selalu mengutamakan kepuasan pelayanan pada pelanggan.</p>
+                            <p>Pelayanan selalu mengutamakan kepuasan kepada pelanggan.</p>
                         </div>
                     </div>
                 </div>
