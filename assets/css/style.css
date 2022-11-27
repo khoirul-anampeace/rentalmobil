@@ -452,6 +452,7 @@ footer ul.horizontal li i {
   padding: 0;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   padding-bottom: 30px;
+  border-radius: 8px;
 }
 #mainMobil .detailmobil div {
   padding: 0;
