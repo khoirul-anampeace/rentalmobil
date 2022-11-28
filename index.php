@@ -35,7 +35,7 @@
                         </li>
                     </ul>
                     <div class="d-flex">
-                        <a href="daftar.php" class="btn navbutton-white me-3">daftar</a>
+                        <a href="daftar/index.php" class="btn navbutton-white me-3">daftar</a>
                         <a href="login.php" class="btn navbutton-white">login</a>
                     </div>
                 </div>

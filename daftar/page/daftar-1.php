@@ -53,7 +53,7 @@ session_start();
         $_SESSION["notelp"] = $notelp;
         $_SESSION["password"] = $password;
         if ($password === $passwordconfirm) {
-            echo "<script>location='daftar.php?pagedaftar=daftar-2'</script>";
+            echo "<script>location='.?pagedaftar=daftar-2'</script>";
         } else {
             echo "<script>alert('Password tidak sama')</script>";
         }

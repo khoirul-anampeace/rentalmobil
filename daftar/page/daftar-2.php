@@ -54,7 +54,7 @@ session_start();
         $_SESSION["alamatasli"] = $alamatAsli;
         $_SESSION["alamatdomisli"] = $alamatDomisili;
 
-        echo "<script>location='daftar.php?pagedaftar=daftar-2'</script>";
+        echo "<script>location='.?pagedaftar=daftar-3'</script>";
     }
     ?>
 </form>
