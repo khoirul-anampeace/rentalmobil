@@ -19,9 +19,7 @@
 
                     <img src="assets/images/logomerpati.png" alt="">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -37,8 +35,8 @@
                         </li>
                     </ul>
                     <div class="d-flex">
-                        <a href="daftar.html" class="btn navbutton-white me-3">daftar</a>
-                        <a href="" class="btn navbutton-white">login</a>
+                        <a href="daftar/index.php" class="btn navbutton-white me-3">daftar</a>
+                        <a href="login.php" class="btn navbutton-white">login</a>
                     </div>
                 </div>
             </div>
@@ -83,8 +81,8 @@
                     <div class="carousel-item">
                         <img src="assets/images/profileImage/img-slide3.jpg" class="d-block" alt="...">
                         <div class="carousel-caption d-none d-md-block">
-                            <h1>Pelayanan Terbaik</h1>
-                            <p>Selalu mengutamakan kepuasan pelayanan pada pelanggan.</p>
+                            <h1>Service Terbaik</h1>
+                            <p>Pelayanan selalu mengutamakan kepuasan kepada pelanggan.</p>
                         </div>
                     </div>
                 </div>
@@ -104,9 +102,9 @@
                                 adalah prioritas kami
                             </h1>
                             <p>
-                                “We promise you will enjoy every moment. Find your favorite now, eat what you love and
-                                save
-                                your time for something cool!” </p>
+                                “Layanan sewa mobil dengan harga bersaing dan selalu mengutamakan kepuasaan pelayanan
+                                bagi para pelanggan. Menyewakan berbagai jenis mobil untuk digunakan di dalam kota maupun
+                                perjalanan antar kota hingga provinsi dengan pelayanan 24 jam.” </p>
                             <ul class="list-about">
                                 <li>
                                     <a href="">
@@ -127,7 +125,7 @@
                                     </a>
                                 </li>
                             </ul>
-                            <p> <b>Since 1997 by Shiro Tetsuro's father.</b></p>
+                            <p> <b>Sejak tahun 2000 oleh Ali Mustain.</b></p>
                         </div>
                     </div>
                 </div>
@@ -233,8 +231,7 @@
                         </li>
                         <li class="ms-3">
                             <a href="http://jti.polije.ac.id/">
-                                <img src="assets/images/profileImage/logo_jti.png"
-                                    style="width: 100px; margin-top:8px;">
+                                <img src="assets/images/profileImage/logo_jti.png" style="width: 100px; margin-top:8px;">
                             </a>
                         </li>
                     </ul>
