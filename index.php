@@ -254,7 +254,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-12 margintop-5">
-                    <h6>FOLLOW US</h6>
+                    <h6>IKUTI KAMI</h6>
                     <ul class="horizontal">
                         <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
                         <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
