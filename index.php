@@ -125,7 +125,7 @@
                                     </a>
                                 </li>
                             </ul>
-                            <p> <b>Since 1997 by Shiro Tetsuro's father.</b></p>
+                            <p> <b>Sejak tahun 2000 oleh Ali Mustain.</b></p>
                         </div>
                     </div>
                 </div>
