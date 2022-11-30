@@ -137,7 +137,7 @@
                 <div class="row d-flex">
                     <div class="col-sm-12 col-md-12 col-lg-6 align-self-center ">
                         <div class="title">
-                            <h1>Our Gallery
+                            <h1>Galeri Kami
                             </h1>
                             <p>Menyediakan berbagai jenis mobil. Mulai dari Xenia sampai Pajero. Mobil yang Anda butuhkan tidak ada? Hubungi kontak tertera. Akan kami sediakan segera.</p>
                         </div>
@@ -180,14 +180,14 @@
 
         <section class="content" id="contact">
             <div class="container">
-                <h1>Contact Us</h1>
+                <h1>Kritik dan Saran</h1>
                 <form class="row g-3">
                     <div class="col-md-6">
-                        <label for="inputNama" class="form-label">First name</label>
+                        <label for="inputNama" class="form-label">Nama depan</label>
                         <input type="text" class="form-control" id="inputNama">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputNama" class="form-label">Last name</label>
+                        <label for="inputNama" class="form-label">Nama belakang</label>
                         <input type="text" class="form-control" id="inputNama">
                     </div>
                     <div class="col-12">
@@ -195,11 +195,11 @@
                         <input type="text" class="form-control" id="inputEmail" placeholder="@mail">
                     </div>
                     <div class="col-12">
-                        <label for="exampleFormControlTextarea1" class="form-label">Your Message</label>
+                        <label for="exampleFormControlTextarea1" class="form-label">Pesan anda</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary">SEND</button>
+                        <button type="submit" class="btn btn-primary">KIRIM</button>
                     </div>
                 </form>
             </div>
@@ -211,11 +211,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <h6>ADDRESS</h6>
-                    <a class="address" href="https://g.page/merpatirentcarjember?share"  >Jl. Sentot Prawirodirjo X/ 201 Jember Kabupaten Jember Jawa Timur 〒68131
+                    <h6>ALAMAT</h6>
+                    <p class="address">Jl. Sentot Prawirodirjo X/ 201 Jember Kabupaten Jember Jawa Timur 〒68131
                         Indonesia
                     </a>
-                    <h6 class="mt-5">OPENING HOURS</h6>
+                    <h6 class="mt-5">Jam Kerja</h6>
                     <div class="row">
                         <p>24 Jam</p>
                     </div>
@@ -251,7 +251,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-12 margintop-5">
-                    <h6>FOLLOW US</h6>
+                    <h6>IKUTI KAMI</h6>
                     <ul class="horizontal">
                         <li><a href="https://www.instagram.com/merpatipersewaanmobiljember/"><i class="fa-brands fa-instagram"></i></a></li>
                         <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>

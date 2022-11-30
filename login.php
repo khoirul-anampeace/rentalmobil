@@ -27,7 +27,7 @@
 
                         <button name="login" class="btn btn-primary mb-3">LOGIN</button>
                         <p>Belum punya akun? </p>
-                        <a href="daftar.php" class="btn btn-secondary">REGISTER</a>
+                        <a href="daftar/index.php"" class="btn btn-secondary">REGISTER</a>
                     </form>
                 </div>
             </div>
