@@ -217,8 +217,8 @@
                     <h6>ALAMAT</h6>
                     <p class="address">Jl. Sentot Prawirodirjo X/ 201 Jember Kabupaten Jember Jawa Timur 〒68131
                         Indonesia
-                    </p>
-                    <h6 class="mt-5">OPENING HOURS</h6>
+                    </a>
+                    <h6 class="mt-5">Jam Kerja</h6>
                     <div class="row">
                         <p>24 Jam</p>
                     </div>
@@ -256,9 +256,9 @@
                 <div class="col-lg-2 col-md-4 col-sm-12 margintop-5">
                     <h6>IKUTI KAMI</h6>
                     <ul class="horizontal">
-                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="https://www.instagram.com/merpatipersewaanmobiljember/"><i class="fa-brands fa-instagram"></i></a></li>
                         <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="https://www.facebook.com/mustainmerpati"><i class="fa-brands fa-facebook"></i></a></li>
                     </ul>
                     <h6 class="mt-5">HUBUNGI</h6>
                     <p>0812-4972-0900</p>
