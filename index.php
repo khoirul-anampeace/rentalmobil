@@ -137,7 +137,7 @@
                 <div class="row d-flex">
                     <div class="col-sm-12 col-md-12 col-lg-6 align-self-center ">
                         <div class="title">
-                            <h1>Our Gallery
+                            <h1>Galeri Kami
                             </h1>
                             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur animi repellendus
                                 eveniet dolores a amet ut molestias similique, autem corrupti deserunt earum quae saepe
@@ -183,14 +183,14 @@
 
         <section class="content" id="contact">
             <div class="container">
-                <h1>Contact Us</h1>
+                <h1>Kritik dan Saran</h1>
                 <form class="row g-3">
                     <div class="col-md-6">
-                        <label for="inputNama" class="form-label">First name</label>
+                        <label for="inputNama" class="form-label">Nama depan</label>
                         <input type="text" class="form-control" id="inputNama">
                     </div>
                     <div class="col-md-6">
-                        <label for="inputNama" class="form-label">Last name</label>
+                        <label for="inputNama" class="form-label">Nama belakang</label>
                         <input type="text" class="form-control" id="inputNama">
                     </div>
                     <div class="col-12">
@@ -198,11 +198,11 @@
                         <input type="text" class="form-control" id="inputEmail" placeholder="@mail">
                     </div>
                     <div class="col-12">
-                        <label for="exampleFormControlTextarea1" class="form-label">Your Message</label>
+                        <label for="exampleFormControlTextarea1" class="form-label">Pesan anda</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary">SEND</button>
+                        <button type="submit" class="btn btn-primary">KIRIM</button>
                     </div>
                 </form>
             </div>
@@ -214,7 +214,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <h6>ADDRESS</h6>
+                    <h6>ALAMAT</h6>
                     <p class="address">Jl. Sentot Prawirodirjo X/ 201 Jember Kabupaten Jember Jawa Timur 〒68131
                         Indonesia
                     </p>
