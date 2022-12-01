@@ -1,3 +1,42 @@
+<?php
+require('config/function.php');
+session_start();
+if (!empty($_SESSION["login"])) {
+    echo "<script>location='customer/index.php'</script>";
+} else {
+    if (isset($_POST['login'])) {
+        $username = $_POST['inusername'];
+        $pass = $_POST['inpassword'];
+        if (!empty(trim($username)) && !empty(trim($pass))) {
+
+            $query = "SELECT * FROM customer WHERE username  = '$username'";
+            $result = mysqli_query($connect, $query);
+            $num = mysqli_num_rows($result);
+
+            while ($row = mysqli_fetch_array($result)) {
+                $id = $row['id_customer'];
+                $userVal = $row['username'];
+                $namaLengkap = $row['nama_lengkap'];
+                $passVal = $row['password'];
+            }
+            if ($num != 0) {
+                if ($userVal == $username && (password_verify($pass, $passVal))) {
+                    $_SESSION["id_customer"] = $id;
+                    $_SESSION["nama_lengkap"] = $namaLengkap;
+                    echo "<script>location='customer/index.php'</script>";
+                } else {
+                    // $error = 'user atau password salah!!';
+                    echo "<script>alert('User dan password salah')</script>";
+                    // echo "<script>location='login.php'</script>";
+                }
+            } else {
+                // $error = 'Data tidak boleh kosong !!';
+                echo "<script>alert(Data tidak boleh kosong!')</script>";
+            }
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,13 +60,16 @@
                 </div>
                 <div class="col-md-6 col-sm-12 form">
                     <h1>LOGIN</h1>
-                    <form action="">
-                        <input type="text" name="username" class="form-control mb-3" placeholder="Username" autofocus required autocomplete="off">
-                        <input type="password" name="password" class="form-control mb-3" placeholder="Password" autofocus required autocomplete="off">
-
+                    <form method="POST">
+                        <input type="text" name="inusername" class="form-control mb-3" placeholder="Username" autofocus required autocomplete="off">
+                        <input type="password" name="inpassword" class="form-control mb-3" placeholder="Password" required autocomplete="off">
+                        <!-- <input class="form-check-input mb-3" name="remember" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Remember Me
+                        </label> -->
                         <button name="login" class="btn btn-primary mb-3">LOGIN</button>
                         <p>Belum punya akun? </p>
-                        <a href="daftar/index.php"" class="btn btn-secondary">REGISTER</a>
+                        <a href="daftar/index.php"" class=" btn btn-secondary">REGISTER</a>
                     </form>
                 </div>
             </div>

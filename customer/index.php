@@ -1,3 +1,16 @@
+<?php
+require("../config/function.php");
+session_start();
+
+// Cek user pada session
+if (!isset($_SESSION["id_customer"])) {
+    // $_SESSION["msg"] = "Anda harus login untuk mengakses halaman ini";
+
+    echo "<script>location='../login.php'</script>";
+}
+$sesId_customer = $_SESSION["id_customer"];
+$sesNamaLengkap = $_SESSION["nama_lengkap"];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,12 +34,12 @@
                 <div class="nav-item dropdown navbarrow">
                     <a class="nav-link dropdown-toggle " href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="../assets/images/users/avatar-2.jpg" width="35px" height="35px" style="border-radius: 50px;">
-                        <p>Khoirul Anam</p>
+                        <p><?= $sesNamaLengkap ?></p>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                         <li><a class="dropdown-item" href="#">Ubah Profil</a></li>
                         <li><a class="dropdown-item" href=".?page=historiTransaksi">History Transaksi</a></li>
-                        <li><a class="dropdown-item" href="../index.php">Log Out</a></li>
+                        <li><a class="dropdown-item" href="../logout.php">Log Out</a></li>
                     </ul>
                 </div>
             </div>

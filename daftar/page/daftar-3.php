@@ -1,7 +1,7 @@
 <?php
 session_start();
 ?>
-<form method="POST" class="g-3 daftar-akun">
+<form method="POST" class="g-3 daftar-akun" enctype="multipart/form-data">
     <section class="content" id="form1">
         <div class="container">
             <h1>Form Ke 3</h1>
@@ -36,29 +36,78 @@ session_start();
                 </div>
 
                 <div class="col-md-12 col-sm-6">
-                    <a href="index.php" class="btn btn-danger" name="batal">Batalkan</a>
-                    <button class="btn btn-primary float-end" name="daftar3">Selanjutnya</button>
+                    <a href=".?pagedaftar=daftar-2" class="btn btn-secondary">Kembali</a>
+                    <button class="btn btn-primary float-end" name="kirim">Buat Akun</button>
                 </div>
             </div>
         </div>
     </section>
 
     <?php
-    if (isset($_POST["daftar3"])) {
-        $nik = $_POST["nik"];
-        $nokk = $_POST["nokk"];
-        $tempatLahir = $_POST["tempatlahir"];
-        $tglLahir = $_POST["tgllahir"];
-        $alamatAsli = $_POST["alamatasli"];
-        $alamatDomisili = $_POST["alamatdomisili"];
-        $_SESSION['nik'] = $nik;
-        $_SESSION["nokk"] = $nokk;
-        $_SESSION["tempatlahir"] = $tempatLahir;
-        $_SESSION["tgllahir"] = $tglLahir;
-        $_SESSION["alamatasli"] = $alamatAsli;
-        $_SESSION["alamatdomisli"] = $alamatDomisili;
+    if (isset($_POST["kirim"])) {
+        // id customer
+        // mengambil data barang dengan kode paling besar
+        $query = mysqli_query($connect, "SELECT max(id_customer) as idTerbesar FROM customer");
+        $data = mysqli_fetch_array($query);
+        $id_customer = $data['idTerbesar'];
 
+        // mengambil angka dari kode barang terbesar, menggunakan fungsi substr
+        // dan diubah ke integer dengan (int)
+        $urutan = (int) substr($id_customer, 3, 3);
 
+        // bilangan yang diambil ini ditambah 1 untuk menentukan nomor urut berikutnya
+        $urutan++;
+
+        // membentuk kode barang baru
+        // perintah sprintf("%03s", $urutan); berguna untuk membuat string menjadi 3 karakter
+        // misalnya perintah sprintf("%03s", 15); maka akan menghasilkan '015'
+        // angka yang diambil tadi digabungkan dengan kode huruf yang kita inginkan, misalnya BRG 
+        $huruf = "CST";
+        $id_customer = $huruf . sprintf("%03s", $urutan);
+        echo $id_customer;
+
+        // form1
+        $namalengkap = $_SESSION['namaLengkap'];
+        $username = $_SESSION["username"];
+        $email = $_SESSION["email"];
+        $notelp = $_SESSION["notelp"];
+        $password = $_SESSION["password"]; // enkripsi_password
+        $enkrip_password = password_hash($password, PASSWORD_DEFAULT);
+        // form2
+        $nik = $_SESSION['nik'];
+        $nokk = $_SESSION["nokk"];
+        $tempatlahir = $_SESSION["tempatlahir"];
+        $tgllahir = $_SESSION["tgllahir"];
+        $alamatasli = $_SESSION["alamatasli"];
+        $alamatdomisili = $_SESSION["alamatdomisili"];
+        // form3
+        $namafotoktp = $namalengkap . "_fotoKTP_" . date("Ymd");
+        $fotoktp = upload($namafotoktp, "fotoktp", "customer");
+        if (!$fotoktp) {
+            return false;
+        }
+
+        $namafotoktpwajah = $namalengkap . "_fotoKTPWajah_" . date("Ymd");
+        $fotoktpwajah = upload($namafotoktpwajah, "fotoktpwajah", "customer");
+        if (!$fotoktpwajah) {
+            return false;
+        }
+        $namafotosim = $namalengkap . "_fotoSIM_" . date("Ymd");
+        $fotosim = upload($namafotosim, "fotosim", "customer");
+        if (!$fotosim) {
+            return false;
+        }
+        $namafotokk = $namalengkap . "_fotoKK_" . date("Ymd");
+        $fotokk = upload($namafotokk, "fotokk", "customer");
+        if (!$fotokk) {
+            return false;
+        }
+
+        // insert
+        $query = "INSERT INTO customer 
+                    VALUES ('$id_customer', '$namalengkap', '$username', '$nik', '$tgllahir', '$tempatlahir', '$notelp', '$email', '$alamatasli', '$alamatdomisili', '$enkrip_password', '$fotoktp', '$fotoktpwajah', '$fotosim', '$fotokk')
+                ";
+        mysqli_query($connect, $query);
         echo "<script>location='.?pagedaftar=session'</script>";
     }
     ?>

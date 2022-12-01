@@ -52,9 +52,8 @@
             </div>
         </a>
         <!-- ScrollTOp -->
-
         <?php
-
+        require("../config/function.php");
         $pagedaftar = @$_GET['pagedaftar'];
         $haldaftar = "page/$pagedaftar.php";
         $daftar = "page/daftar-1.php";
