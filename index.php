@@ -218,7 +218,7 @@
                     <p class="address">Jl. Sentot Prawirodirjo X/ 201 Jember Kabupaten Jember Jawa Timur 〒68131
                         Indonesia
                     </a>
-                    <h6 class="mt-5">Jam Kerja</h6>
+                    <h6 class="mt-5">JAM KERJA</h6>
                     <div class="row">
                         <p>24 Jam</p>
                     </div>
