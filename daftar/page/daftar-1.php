@@ -70,6 +70,7 @@ if (!empty($_SESSION['namaLengkap']) && !empty($_SESSION["username"]) && !empty(
             echo "<script>location='.?pagedaftar=daftar-2'</script>";
         } else {
             echo "<script>alert('Password tidak sama')</script>";
+            return false;
         }
     }
     // if (isset($_POST["tambahbarang"])) {

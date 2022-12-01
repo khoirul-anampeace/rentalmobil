@@ -21,6 +21,7 @@ $sesNamaLengkap = $_SESSION["nama_lengkap"];
     <title>Merpati Rent Car</title>
     <link rel="stylesheet" href="../assets/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../assets/images/logomerpati_sm.png" type="image/icon type">
 </head>
 
 <body>
@@ -37,7 +38,7 @@ $sesNamaLengkap = $_SESSION["nama_lengkap"];
                         <p><?= $sesNamaLengkap ?></p>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="#">Ubah Profil</a></li>
+                        <li><a class="dropdown-item" href=".?page=ubahProfile">Ubah Profil</a></li>
                         <li><a class="dropdown-item" href=".?page=historiTransaksi">History Transaksi</a></li>
                         <li><a class="dropdown-item" href="../logout.php">Log Out</a></li>
                     </ul>
@@ -102,7 +103,7 @@ $sesNamaLengkap = $_SESSION["nama_lengkap"];
                     <ul class="vertical">
                         <li><a class="nav-link" href="#about">Lepas Kunci</a></li>
                         <li><a class="nav-link" href="#menu">Mobil + Driver</a></li>
-                        <li><a class="nav-link" href="#gallery">All In</a></li>
+                        <!-- <li><a class="nav-link" href="#gallery">All In</a></li> -->
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-12 margintop-5">

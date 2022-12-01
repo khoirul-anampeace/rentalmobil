@@ -69,8 +69,16 @@ if (!empty($_SESSION['nik']) && !empty($_SESSION["nokk"]) && !empty($_SESSION["t
         $_SESSION["tgllahir"] = $tglLahir;
         $_SESSION["alamatasli"] = $alamatAsli;
         $_SESSION["alamatdomisili"] = $alamatDomisili;
-
-        echo "<script>location='.?pagedaftar=daftar-3'</script>";
+        // cek nik
+        if (strlen($nik) != 16 && strlen($nokk) == 16) {
+            echo "<script>alert('NIK Anda tidak sesuai')</script>";
+            return false;
+        } else if (strlen($nik) == 16 && strlen($nokk) != 16) {
+            echo "<script>alert('No KK Anda tidak sesuai')</script>";
+            return false;
+        } else {
+            echo "<script>location='.?pagedaftar=daftar-3'</script>";
+        }
     }
     ?>
 </form>

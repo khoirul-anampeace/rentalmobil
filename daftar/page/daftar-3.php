@@ -105,7 +105,7 @@ session_start();
 
         // insert
         $query = "INSERT INTO customer 
-                    VALUES ('$id_customer', '$namalengkap', '$username', '$nik', '$tgllahir', '$tempatlahir', '$notelp', '$email', '$alamatasli', '$alamatdomisili', '$enkrip_password', '$fotoktp', '$fotoktpwajah', '$fotosim', '$fotokk')
+                    VALUES ('$id_customer', '$namalengkap', '$username', '$nik', '$tgllahir', '$tempatlahir', '$notelp', '$email', '$alamatasli', '$alamatdomisili', '$enkrip_password', '$fotoktp', '$fotoktpwajah', '$fotosim', '$fotokk', '')
                 ";
         mysqli_query($connect, $query);
         echo "<script>location='.?pagedaftar=session'</script>";

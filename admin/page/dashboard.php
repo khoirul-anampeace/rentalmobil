@@ -15,7 +15,7 @@
                     </a>
                 </form>
             </div>
-            <h4 class="page-title">Analytics</h4>
+            <h4 class="page-title">Dashboard</h4>
         </div>
     </div>
 </div>
