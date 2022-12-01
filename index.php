@@ -214,8 +214,13 @@
                     <h6>ALAMAT</h6>
                     <p class="address">Jl. Sentot Prawirodirjo X/ 201 Jember Kabupaten Jember Jawa Timur 〒68131
                         Indonesia
+<<<<<<< HEAD
                         </a>
                     <h6 class="mt-5">Jam Kerja</h6>
+=======
+                    </a>
+                    <h6 class="mt-5">JAM KERJA</h6>
+>>>>>>> 3dea351d7329969690528d4067b189e59fe428fc
                     <div class="row">
                         <p>24 Jam</p>
                     </div>
