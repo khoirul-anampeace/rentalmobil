@@ -109,19 +109,19 @@
                                 <li>
                                     <a href="">
                                         <i class="fa-solid fa-circle-check"></i>
-                                        <p>Served in the same way as in Japan</p>
+                                        <p>pelayanan selalu mengutamakan kepuasan pelanggan</p>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="">
                                         <i class="fa-solid fa-circle-check"></i>
-                                        <p>A unique method of roasting the bones before boiling</p>
+                                        <p>melayani pertanyaan pelanggan selama 24 jam kerja </p>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="">
                                         <i class="fa-solid fa-circle-check"></i>
-                                        <p> We import the ingredients directly from Japan.</p>
+                                        <p>harga bersaing dibandingkan dengan rental lain</p>
                                     </a>
                                 </li>
                             </ul>
@@ -139,10 +139,7 @@
                         <div class="title">
                             <h1>Galeri Kami
                             </h1>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur animi repellendus
-                                eveniet dolores a amet ut molestias similique, autem corrupti deserunt earum quae saepe
-                                culpa esse, perferendis, maxime soluta eum.
-                            </p>
+                            <p>Menyediakan berbagai jenis mobil. Mulai dari Xenia sampai Pajero. Mobil yang Anda butuhkan tidak ada? Hubungi kontak tertera. Akan kami sediakan segera.</p>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-6 align-self-center image-layout">
