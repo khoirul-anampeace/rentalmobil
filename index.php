@@ -2,10 +2,10 @@
 session_start();
 
 // Cek user pada session
-if (!isset($_SESSION["id_customer"])) {
+if (isset($_SESSION["id_customer"])) {
     // $_SESSION["msg"] = "Anda harus login untuk mengakses halaman ini";
 
-    echo "<script>location='../login.php'</script>";
+    echo "<script>location='customer/index.php'</script>";
 }
 ?>
 <!DOCTYPE html>

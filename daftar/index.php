@@ -1,3 +1,12 @@
+<?php
+session_start();
+// Cek user pada session
+if (isset($_SESSION["id_customer"])) {
+    // $_SESSION["msg"] = "Anda harus login untuk mengakses halaman ini";
+
+    echo "<script>location='../customer/index.php'</script>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
