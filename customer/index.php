@@ -9,7 +9,6 @@ if (!isset($_SESSION["id_customer"])) {
     echo "<script>location='../login.php'</script>";
 }
 $sesId_customer = $_SESSION["id_customer"];
-$sesNamaLengkap = $_SESSION["nama_lengkap"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,20 +28,28 @@ $sesNamaLengkap = $_SESSION["nama_lengkap"];
     <header>
         <nav class="navbar navbar-expand-lg navbar-light" id="main">
             <div class="container navsmooth">
-                <a class="navbar-brand" href="index.php">
-                    <img src="../assets/images/logomerpati.png" alt="">
-                </a>
-                <div class="nav-item dropdown navbarrow">
-                    <a class="nav-link dropdown-toggle " href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="../assets/images/users/avatar-2.jpg" width="35px" height="35px" style="border-radius: 50px;">
-                        <p><?= $sesNamaLengkap ?></p>
+                <?php
+                if (isset($_SESSION["id_customer"])) :
+                    $customerId = $_SESSION["id_customer"];
+                    $query = "SELECT * FROM customer WHERE id_customer = '$customerId'";
+                    $result = mysqli_query($connect, $query);
+                    $row = mysqli_fetch_assoc($result);
+                ?>
+                    <a class="navbar-brand" href="index.php">
+                        <img src="../assets/images/logomerpati.png" alt="">
                     </a>
+                    <div class="nav-item dropdown navbarrow">
+                        <a class="nav-link dropdown-toggle " href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="../assets/images/customer/<?= $row["fotoprofil"] ?>" width="35px" height="35px" style="border-radius: 50px;">
+                            <p><?= $row["nama_lengkap"] ?></p>
+                        </a>
+                    <?php endif; ?>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
                         <li><a class="dropdown-item" href=".?page=ubahProfile">Ubah Profil</a></li>
                         <li><a class="dropdown-item" href=".?page=historiTransaksi">History Transaksi</a></li>
                         <li><a class="dropdown-item" href="../logout.php">Log Out</a></li>
                     </ul>
-                </div>
+                    </div>
             </div>
         </nav>
     </header>

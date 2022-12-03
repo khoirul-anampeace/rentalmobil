@@ -48,7 +48,7 @@ function upload($nama, $gambar, $folder)
     $fileSize = $_FILES[$gambar]['size'];
     $fileError = $_FILES[$gambar]['error'];
     $temporyName = $_FILES[$gambar]['tmp_name'];
-    echo "Halo" . $_FILES[$gambar]['name'];
+    // echo "Halo" . $_FILES[$gambar]['name'];
     // Cek file apakah ada
     if (!$fileError === 0) {
         echo "<script>alert('gambar belum di input');</script>";

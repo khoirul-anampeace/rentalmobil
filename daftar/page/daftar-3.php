@@ -75,7 +75,7 @@ session_start();
         $enkrip_password = password_hash($password, PASSWORD_DEFAULT);
         // form2
         $nik = $_SESSION['nik'];
-        $nokk = $_SESSION["nokk"];
+        $jeniskelamin = $_SESSION["jeniskelamin"];
         $tempatlahir = $_SESSION["tempatlahir"];
         $tgllahir = $_SESSION["tgllahir"];
         $alamatasli = $_SESSION["alamatasli"];
@@ -105,7 +105,7 @@ session_start();
 
         // insert
         $query = "INSERT INTO customer 
-                    VALUES ('$id_customer', '$namalengkap', '$username', '$nik', '$tgllahir', '$tempatlahir', '$notelp', '$email', '$alamatasli', '$alamatdomisili', '$enkrip_password', '$fotoktp', '$fotoktpwajah', '$fotosim', '$fotokk', '')
+                    VALUES ('$id_customer', '$namalengkap', '$username', '$nik', '$tgllahir', '$tempatlahir', '$jeniskelamin', '$notelp', '$email', '$alamatasli', '$alamatdomisili', '$enkrip_password', '$fotoktp', '$fotoktpwajah', '$fotosim', '$fotokk', '')
                 ";
         mysqli_query($connect, $query);
         echo "<script>location='.?pagedaftar=session'</script>";

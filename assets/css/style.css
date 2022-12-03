@@ -600,6 +600,12 @@ footer ul.horizontal li i {
 
 /* Checkout */
 
+/* UbahProfile */
+#ubahProfil .img-ubahProfil img {
+  border-radius: 50%;
+}
+/* UbahProfile */
+
 /* Responsive */
 @media screen and (max-width: 768px) {
   header .navbar-nav a,
