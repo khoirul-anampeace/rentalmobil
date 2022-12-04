@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 if (!empty($_SESSION['namaLengkap']) && !empty($_SESSION["username"]) && !empty($_SESSION["email"]) && !empty($_SESSION["notelp"]) && !empty($_SESSION["password"])) {
 
     $inputnama = $_SESSION['namaLengkap'];

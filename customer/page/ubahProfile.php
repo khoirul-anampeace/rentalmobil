@@ -8,11 +8,20 @@
             $query = "SELECT * FROM customer WHERE id_customer = '$customerId'";
             $result = mysqli_query($connect, $query);
             $row = mysqli_fetch_assoc($result);
+            if ($row["fotoprofil"] != "") {
+                $tampilkanprofil = "../assets/images/customer/" . $row["fotoprofil"];
+            } else {
+                if ($row["jeniskelamin"] == "Perempuan") {
+                    $tampilkanprofil = "../assets/images/users/woman.png";
+                } else {
+                    $tampilkanprofil = "../assets/images/users/man.png";
+                }
+            }
         ?>
             <form method="POST" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-md-3 img-ubahProfil">
-                        <img src="../assets/images/customer/<?= $row["fotoprofil"] ?>" width="260px" height="260px">
+                        <img src="<?= $tampilkanprofil ?>" width="260px" height="260px">
                         <label for="imageUploadProfil" class="form-label mt-3">Ganti Foto Profil</label>
                         <input type="file" name="fotoprofil" class="form-control mb-5" id="imageUploadProfil" onchange="readURLKTPWajah(this);" placeholder="3*****" autocomplete="off">
                         <?php $profilePhoto = $row["fotoprofil"] ?>
@@ -123,7 +132,7 @@
                     $alamatDomisili = $_POST["alamatdomisili"];
                     // echo $row["fotoprofil"];
                     if ($_FILES['fotoprofil']['name'] == true) {
-                        $namafotoprofil = $namaLengkap . "_fotoProfil_" . date("Ymd");
+                        $namafotoprofil = $customerId . "_fotoProfil_";
                         $fotoprofil = upload($namafotoprofil, "fotoprofil", "customer");
                     } else {
                         $fotoprofil = $profilePhoto;

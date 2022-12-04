@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 ?>
 <form method="POST" class="g-3 daftar-akun" enctype="multipart/form-data">
     <section class="content" id="form1">
@@ -64,7 +64,7 @@ session_start();
         // angka yang diambil tadi digabungkan dengan kode huruf yang kita inginkan, misalnya BRG 
         $huruf = "CST";
         $id_customer = $huruf . sprintf("%03s", $urutan);
-        echo $id_customer;
+        // echo $id_customer;
 
         // form1
         $namalengkap = $_SESSION['namaLengkap'];
@@ -81,23 +81,23 @@ session_start();
         $alamatasli = $_SESSION["alamatasli"];
         $alamatdomisili = $_SESSION["alamatdomisili"];
         // form3
-        $namafotoktp = $namalengkap . "_fotoKTP_" . date("Ymd");
+        $namafotoktp = $id_customer . "_fotoKTP_";
         $fotoktp = upload($namafotoktp, "fotoktp", "customer");
         if (!$fotoktp) {
             return false;
         }
 
-        $namafotoktpwajah = $namalengkap . "_fotoKTPWajah_" . date("Ymd");
+        $namafotoktpwajah = $id_customer . "_fotoKTPWajah_";
         $fotoktpwajah = upload($namafotoktpwajah, "fotoktpwajah", "customer");
         if (!$fotoktpwajah) {
             return false;
         }
-        $namafotosim = $namalengkap . "_fotoSIM_" . date("Ymd");
+        $namafotosim = $id_customer . "_fotoSIM_";
         $fotosim = upload($namafotosim, "fotosim", "customer");
         if (!$fotosim) {
             return false;
         }
-        $namafotokk = $namalengkap . "_fotoKK_" . date("Ymd");
+        $namafotokk = $id_customer . "_fotoKK_";
         $fotokk = upload($namafotokk, "fotokk", "customer");
         if (!$fotokk) {
             return false;

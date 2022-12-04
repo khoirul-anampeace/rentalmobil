@@ -34,13 +34,23 @@ $sesId_customer = $_SESSION["id_customer"];
                     $query = "SELECT * FROM customer WHERE id_customer = '$customerId'";
                     $result = mysqli_query($connect, $query);
                     $row = mysqli_fetch_assoc($result);
+
+                    if ($row["fotoprofil"] != "") {
+                        $tampilkanprofil = "../assets/images/customer/" . $row["fotoprofil"];
+                    } else {
+                        if ($row["jeniskelamin"] == "Perempuan") {
+                            $tampilkanprofil = "../assets/images/users/woman.png";
+                        } else {
+                            $tampilkanprofil = "../assets/images/users/man.png";
+                        }
+                    }
                 ?>
                     <a class="navbar-brand" href="index.php">
                         <img src="../assets/images/logomerpati.png" alt="">
                     </a>
                     <div class="nav-item dropdown navbarrow">
                         <a class="nav-link dropdown-toggle " href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="../assets/images/customer/<?= $row["fotoprofil"] ?>" width="35px" height="35px" style="border-radius: 50px;">
+                            <img src="<?= $tampilkanprofil ?>" width="35px" height="35px" style="border-radius: 50px;">
                             <p><?= $row["nama_lengkap"] ?></p>
                         </a>
                     <?php endif; ?>

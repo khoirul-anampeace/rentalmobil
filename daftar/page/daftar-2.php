@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 if (!empty($_SESSION['nik']) && !empty($_SESSION["jeniskelamin"]) && !empty($_SESSION["tempatlahir"]) && !empty($_SESSION["tgllahir"]) && !empty($_SESSION["alamatasli"]) && !empty($_SESSION["alamatdomisili"])) {
 
     $inputnik = $_SESSION['nik'];
