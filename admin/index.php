@@ -27,6 +27,9 @@
     <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" id="light-style">
     <link href="../assets/css/app-dark.min.css" rel="stylesheet" type="text/css" id="dark-style">
 
+    <!-- style -->
+    <link rel="stylesheet" href="../assets/css/styleAdmin.css">
+
 </head>
 
 <body class="loading" data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'>
@@ -92,13 +95,19 @@
                         </a>
                     </li>
                     <li class="side-nav-item">
-                        <a href=".?page=dashboard" class="side-nav-link">
+                        <a href=".?page=mobil" class="side-nav-link">
                             <i class="uil-car"></i>
                             <span>Mobil</span>
                         </a>
                     </li>
                     <li class="side-nav-item">
-                        <a href=".?page=dashboard" class="side-nav-link">
+                        <a href=".?page=driver" class="side-nav-link">
+                            <i class="uil-users-alt"></i>
+                            <span>Driver</span>
+                        </a>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href=".?page=admin" class="side-nav-link">
                             <i class="uil-user-check"></i>
                             <span>Admin</span>
                         </a>
@@ -188,13 +197,13 @@
                         <i class="mdi mdi-menu"></i>
                     </button>
                     <div class="app-search dropdown d-none d-lg-block">
-                        <form>
+                        <!-- <form>
                             <div class="input-group">
                                 <input type="text" class="form-control dropdown-toggle" placeholder="Search..." id="top-search">
                                 <span class="mdi mdi-magnify search-icon"></span>
                                 <button class="input-group-text btn-primary" type="submit">Search</button>
                             </div>
-                        </form>
+                        </form> -->
                     </div>
                 </div>
                 <!-- end Topbar -->
