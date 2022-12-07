@@ -1,0 +1,25 @@
+#detailCustomer .textDetail table {
+  width: 100%;
+}
+#detailCustomer .textDetail table tr td {
+  /* background-color: #ff7979; */
+  vertical-align: middle;
+  /* border: 2px black solid; */
+}
+#detailCustomer .textDetail table tr td.first {
+  width: 20%;
+}
+#detailCustomer .textDetail table tr td p {
+  /* font-weight: 700; */
+  color: rgb(101, 101, 101);
+}
+#detailCustomer .textDetail table tr {
+  border-bottom: 15px rgba(0, 0, 0, 0) solid;
+}
+.text-detailmobil table tr {
+  padding: 10px 0;
+}
+#detailCustomer .textDetail table tr td h5,
+#detailCustomer .textDetail table tr td p {
+  margin: 0;
+}
