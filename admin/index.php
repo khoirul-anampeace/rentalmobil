@@ -138,7 +138,7 @@ if (isset($_SESSION["id_admin"])) {
                         <li class="side-nav-item">
                             <a href=".?page=admin" class="side-nav-link">
                                 <i class="uil-users-alt"></i>
-                                <span>Admin saya</span>
+                                <span>Admin</span>
                             </a>
                         </li>
                     <?php
