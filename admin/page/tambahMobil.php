@@ -113,7 +113,7 @@ $id_mobil = $huruf . sprintf("%03s", $urutan);
                             <textarea name="catatan" class="form-control" id="inputMerk" required autocomplete="off"></textarea>
                         </div>
                         <div class="col-md-12 col-sm-6">
-                            <a href=".?pagedaftar=daftar-2" class="btn btn-secondary">Batalkan</a>
+                            <a href=".?pagedaftar=mobil" class="btn btn-secondary">Batalkan</a>
                             <button class="btn btn-primary float-end" name="tambah">Tambah</button>
                         </div>
                     </div>

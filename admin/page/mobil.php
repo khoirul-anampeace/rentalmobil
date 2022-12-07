@@ -81,7 +81,7 @@
                         <td class="table-action">
                             <!-- <a href=".?page=detailCustomer&id_customer=<?= $row['id_mobil'] ?>" class="action-icon"><i class="mdi mdi-eye"></i></a> -->
                             <a href=".?page=updateMobil&id_mobil=<?= $row['id_mobil'] ?>" class="action-icon"> <i class="mdi mdi-pencil"></i></a>
-                            <a href=".?page=delete&id=<?= $row['id_mobil'] ?>&table=<?= "mobil" ?>&id_table=<?= "id_mobil" ?>" class="action-icon"> <i class="mdi mdi-delete"></i></a>
+                            <a href=".?page=deleteMobil&id=<?= $row['id_mobil'] ?>&table=<?= "mobil" ?>&id_table=<?= "id_mobil" ?>" class="action-icon"> <i class="mdi mdi-delete"></i></a>
                         </td>
                     </tr>
 
