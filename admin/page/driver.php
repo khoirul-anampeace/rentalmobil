@@ -26,6 +26,7 @@
         <table id="scroll-horizontal-datatable" class="table w-100 nowrap">
             <thead>
                 <tr>
+                    <th>No</th>
                     <th>id Driver</th>
                     <th>Nama</th>
                     <th>Hp/Telp</th>
@@ -38,13 +39,14 @@
             </thead>
 
             <?php
-            $mobil = query("SELECT * FROM driver");
+            $driver = query("SELECT * FROM driver");
             $no = 1;
-            foreach ($mobil as $row) :
+            foreach ($driver as $row) :
             ?>
 
                 <tbody>
                     <tr>
+                        <td><?= $no ?></td>
                         <td><?= $row["id_driver"] ?></td>
                         <td><?= $row["nama"] ?></td>
                         <td><?= $row["telp"] ?></td>
@@ -59,7 +61,8 @@
                         </td>
                     </tr>
 
-                <?php endforeach; ?>
+                <?php $no++;
+            endforeach; ?>
                 </tbody>
         </table>
     </div>

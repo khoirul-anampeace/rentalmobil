@@ -25,6 +25,7 @@
         <table id="scroll-horizontal-datatable" class="table w-100 nowrap">
             <thead>
                 <tr>
+                    <th>No</th>
                     <th>id Customer</th>
                     <th>Nama Lengkap</th>
                     <th>Username</th>
@@ -54,6 +55,7 @@
 
                 <tbody>
                     <tr>
+                        <td><?= $no ?></td>
                         <td><?= $row["id_customer"] ?></td>
                         <td><?= $row["nama_lengkap"] ?></td>
                         <td><?= $row["username"] ?></td>
@@ -88,7 +90,8 @@
                         </td>
                     </tr>
 
-                <?php endforeach; ?>
+                <?php $no++;
+            endforeach; ?>
                 </tbody>
         </table>
     </div>

@@ -4,7 +4,7 @@
         <div class="page-title-box">
             <div class="page-title-right">
             </div>
-            <h4 class="page-title">Tambah Mobil</h4>
+            <h4 class="page-title">Tambah Driver</h4>
         </div>
     </div>
 </div>
@@ -27,7 +27,7 @@ $urutan++;
 // perintah sprintf("%03s", $urutan); berguna untuk membuat string menjadi 3 karakter
 // misalnya perintah sprintf("%03s", 15); maka akan menghasilkan '015'
 // angka yang diambil tadi digabungkan dengan kode huruf yang kita inginkan, misalnya BRG 
-$huruf = "MOB";
+$huruf = "DRV";
 $id_driver = $huruf . sprintf("%03s", $urutan);
 // echo $id_customer;
 

@@ -1,4 +1,30 @@
-﻿<!DOCTYPE html>
+﻿<?php
+require("../config/function.php");
+session_start();
+
+// Cek user pada session
+if (!isset($_SESSION["id_admin"])) {
+    // $_SESSION["msg"] = "Anda harus login untuk mengakses halaman ini";
+
+    echo "<script>location='login.php'</script>";
+}
+
+if (isset($_SESSION["id_admin"])) {
+    $adminId = $_SESSION["id_admin"];
+    $query = "SELECT * FROM admin WHERE id_admin = '$adminId'";
+    $result = mysqli_query($connect, $query);
+    $row = mysqli_fetch_assoc($result);
+
+    // echo "id Admin" . $row["nama"];
+
+    if ($row["fotoprofil"] != "") {
+        $tampilkanprofil = "../assets/images/admin/" . $row["fotoprofil"];
+    } else {
+        $tampilkanprofil = "../assets/images/users/man.png";
+    }
+}
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -106,12 +132,18 @@
                             <span>Driver</span>
                         </a>
                     </li>
-                    <li class="side-nav-item">
-                        <a href=".?page=admin" class="side-nav-link">
-                            <i class="uil-user-check"></i>
-                            <span>Admin</span>
-                        </a>
-                    </li>
+                    <?php
+                    if ($row["status_admin"] === "Pemilik") {
+                    ?>
+                        <li class="side-nav-item">
+                            <a href=".?page=admin" class="side-nav-link">
+                                <i class="uil-users-alt"></i>
+                                <span>Admin</span>
+                            </a>
+                        </li>
+                    <?php
+                    }
+                    ?>
                 </ul>
                 <!-- End Sidebar -->
                 <!-- End Sidebar -->
@@ -143,15 +175,18 @@
                                 </form>
                             </div>
                         </li>
+                        <?php
 
+
+                        ?>
                         <li class="dropdown notification-list">
                             <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                                 <span class="account-user-avatar">
-                                    <img src="../assets/images/users/avatar-11.jpg" alt="user-image" class="rounded-circle">
+                                    <img src="<?= $tampilkanprofil ?>" alt="user-image" class="rounded-circle">
                                 </span>
                                 <span>
-                                    <span class="account-user-name">Jihan Audylia Arinde</span>
-                                    <span class="account-position">Admin</span>
+                                    <span class="account-user-name"><?= $row["nama"] ?></span>
+                                    <span class="account-position"><?= $row["status_admin"] ?></span>
                                 </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
@@ -159,39 +194,13 @@
                                 <div class=" dropdown-header noti-title">
                                     <h6 class="text-overflow m-0">Welcome !</h6>
                                 </div>
-
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="mdi mdi-account-circle me-1"></i>
-                                    <span>My Account</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="mdi mdi-account-edit me-1"></i>
-                                    <span>Settings</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="mdi mdi-lifebuoy me-1"></i>
-                                    <span>Support</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="mdi mdi-lock-outline me-1"></i>
-                                    <span>Lock Screen</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a href="logout.php" class="dropdown-item notify-item">
                                     <i class="mdi mdi-logout me-1"></i>
                                     <span>Logout</span>
                                 </a>
                             </div>
                         </li>
-
                     </ul>
                     <button class="button-menu-mobile open-left">
                         <i class="mdi mdi-menu"></i>
@@ -211,7 +220,6 @@
                 <!-- Start Content-->
                 <div class="container-fluid">
                     <?php
-                    require("../config/function.php");
 
                     $page = @$_GET['page'];
                     $hal = "page/$page.php";
@@ -253,7 +261,7 @@
     </div>
     <!-- END wrapper -->
 
-
+    <script src="../assets/js/jquery.js"></script>
 
     <!-- bundle -->
     <script src="../assets/js/vendor.min.js"></script>

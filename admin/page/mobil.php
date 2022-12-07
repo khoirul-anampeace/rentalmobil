@@ -54,6 +54,7 @@
 
                 <tbody>
                     <tr>
+                        <td><?= $no ?></td>
                         <td><?= $row["id_mobil"] ?></td>
                         <td><?= $row["merk"] ?></td>
                         <td><?= $row["jenis"] ?></td>
@@ -85,7 +86,8 @@
                         </td>
                     </tr>
 
-                <?php endforeach; ?>
+                <?php $no++;
+            endforeach; ?>
                 </tbody>
         </table>
     </div>
