@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-12">
                     <a href=".?pagedaftar=dashboard" class="btn btn-danger">Kembali</a>
-                    <button class="btn btn-primary float-end" name="update">Update</button>
+                    <button class="btn btn-primary float-end" name="update">Ganti Password</button>
                 </div>
             </div>
         </form>
