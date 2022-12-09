@@ -25,3 +25,5 @@ $(function () {
         return window.pageYOffset;
     }
 });
+
+// rupiah
