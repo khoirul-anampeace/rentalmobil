@@ -10,38 +10,34 @@ if (isset($_SESSION["id_admin"])) {
 }
 
 
-if (!empty($_SESSION["login"])) {
-    echo "<script>location='index.php'</script>";
-} else {
-    if (isset($_POST['login'])) {
-        $username = $_POST['inusername'];
-        $pass = $_POST['inpassword'];
-        if (!empty(trim($username)) && !empty(trim($pass))) {
+if (isset($_POST['login'])) {
+    $username = $_POST['inusername'];
+    $pass = $_POST['inpassword'];
+    if (!empty(trim($username)) && !empty(trim($pass))) {
 
-            $query = "SELECT * FROM admin WHERE username  = '$username'";
-            $result = mysqli_query($connect, $query);
-            $num = mysqli_num_rows($result);
+        $query = "SELECT * FROM admin WHERE username  = '$username'";
+        $result = mysqli_query($connect, $query);
+        $num = mysqli_num_rows($result);
 
-            while ($row = mysqli_fetch_array($result)) {
-                $id = $row['id_admin'];
-                $adminVal = $row['username'];
-                $namaAdmin = $row['nama'];
-                $passVal = $row['password'];
-            }
-            if ($num != 0) {
-                if ($adminVal == $username && $pass == $passVal) {
-                    $_SESSION["id_admin"] = $id;
-                    $_SESSION["nama_admin"] = $namaAdmin;
-                    echo "<script>location='index.php'</script>";
-                } else {
-                    // $error = 'user atau password salah!!';
-                    echo "<script>alert('User dan password salah')</script>";
-                    // echo "<script>location='login.php'</script>";
-                }
+        while ($row = mysqli_fetch_array($result)) {
+            $id = $row['id_admin'];
+            $adminVal = $row['username'];
+            $namaAdmin = $row['nama'];
+            $passVal = $row['password'];
+        }
+        if ($num != 0) {
+            if ($adminVal == $username && $pass == $passVal) {
+                $_SESSION["id_admin"] = $id;
+                $_SESSION["nama_admin"] = $namaAdmin;
+                echo "<script>location='index.php'</script>";
             } else {
-                // $error = 'Data tidak boleh kosong !!';
-                echo "<script>alert(Data tidak boleh kosong!')</script>";
+                // $error = 'user atau password salah!!';
+                echo "<script>alert('User dan password salah')</script>";
+                // echo "<script>location='login.php'</script>";
             }
+        } else {
+            // $error = 'Data tidak boleh kosong !!';
+            echo "<script>alert(Data tidak boleh kosong!')</script>";
         }
     }
 }

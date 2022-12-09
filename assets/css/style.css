@@ -582,11 +582,23 @@ footer ul.horizontal li i {
   margin: 15px 0;
   width: 100%;
 }
+#checkout .checkoutlepaskunci .checkright .box table tr td {
+  /* background-color: #ff7979; */
+  vertical-align: middle;
+  padding: 5px 0;
+  /* border: 2px black solid; */
+}
 #checkout .checkoutlepaskunci .checkright .box table tr td.first {
-  width: 35%;
+  width: 30%;
+}
+#checkout .checkoutlepaskunci .checkright .box table tr td h6 {
+  margin: 0;
 }
 #checkout .checkoutlepaskunci .checkright .box table tr td p {
-  font-weight: 700;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+  /* background-color: #e36060; */
   color: rgb(118, 118, 118);
 }
 #checkout .checkoutlepaskunci .checkright .box img.barcode {

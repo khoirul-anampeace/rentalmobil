@@ -26,7 +26,7 @@
                         <input type="file" name="fotoprofil" class="form-control mb-5" id="imageUploadProfil" onchange="readURLKTPWajah(this);" placeholder="3*****" autocomplete="off">
                         <?php $profilePhoto = $row["fotoprofil"] ?>
                         <hr style="border: 1px solid;">
-                        <a href="#" class="btn btn-secondary mt-3 w-100">Ganti Password</a>
+                        <a href=".?page=gantiPassword" class="btn btn-secondary mt-3 w-100">Ganti Password</a>
                     </div>
                     <div class="col-md-9 row form-ubahProfil">
                         <div class="col-md-6 mb-4">

@@ -150,6 +150,7 @@ $sesId_customer = $_SESSION["id_customer"];
     <!-- Script -->
     <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/calc.js"></script>
     <script src="https://kit.fontawesome.com/62bf956e5e.js" crossorigin="anonymous"></script>
     <script src="../assets/js/vendor/bootstrap.min.js"></script>
 </body>

@@ -16,7 +16,7 @@
                             <h5><?= $row["merk"] ?></h5>
                             <p class="harga">Rp <?= $row["harga"] ?>,</p>
                             <a href=".?page=detailMobil&id_mobil=<?= $row["id_mobil"] ?>" class="btn btn-secondary">Detail</a>
-                            <a href=".?page=checkoutLepasKunci&id=<?= $row["id_mobil"] ?>" class="btn btn-primary float-end">Book</a>
+                            <a href=".?page=checkoutLepasKunci&id_mobil=<?= $row["id_mobil"] ?>" class="btn btn-primary float-end">Book</a>
                         </div>
                     </div>
                 </div>

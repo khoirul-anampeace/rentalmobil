@@ -10,38 +10,34 @@ if (isset($_SESSION["id_customer"])) {
 }
 
 
-if (!empty($_SESSION["login"])) {
-    echo "<script>location='customer/index.php'</script>";
-} else {
-    if (isset($_POST['login'])) {
-        $username = $_POST['inusername'];
-        $pass = $_POST['inpassword'];
-        if (!empty(trim($username)) && !empty(trim($pass))) {
+if (isset($_POST['login'])) {
+    $username = $_POST['inusername'];
+    $pass = $_POST['inpassword'];
+    if (!empty(trim($username)) && !empty(trim($pass))) {
 
-            $query = "SELECT * FROM customer WHERE username  = '$username'";
-            $result = mysqli_query($connect, $query);
-            $num = mysqli_num_rows($result);
+        $query = "SELECT * FROM customer WHERE username  = '$username'";
+        $result = mysqli_query($connect, $query);
+        $num = mysqli_num_rows($result);
 
-            while ($row = mysqli_fetch_array($result)) {
-                $id = $row['id_customer'];
-                $userVal = $row['username'];
-                $namaLengkap = $row['nama_lengkap'];
-                $passVal = $row['password'];
-            }
-            if ($num != 0) {
-                if ($userVal == $username && (password_verify($pass, $passVal))) {
-                    $_SESSION["id_customer"] = $id;
-                    $_SESSION["nama_lengkap"] = $namaLengkap;
-                    echo "<script>location='customer/index.php'</script>";
-                } else {
-                    // $error = 'user atau password salah!!';
-                    echo "<script>alert('User dan password salah')</script>";
-                    // echo "<script>location='login.php'</script>";
-                }
+        while ($row = mysqli_fetch_array($result)) {
+            $id = $row['id_customer'];
+            $userVal = $row['username'];
+            $namaLengkap = $row['nama_lengkap'];
+            $passVal = $row['password'];
+        }
+        if ($num != 0) {
+            if ($userVal == $username && (password_verify($pass, $passVal))) {
+                $_SESSION["id_customer"] = $id;
+                $_SESSION["nama_lengkap"] = $namaLengkap;
+                echo "<script>location='customer/index.php'</script>";
             } else {
-                // $error = 'Data tidak boleh kosong !!';
-                echo "<script>alert(Data tidak boleh kosong!')</script>";
+                // $error = 'user atau password salah!!';
+                echo "<script>alert('User dan password salah')</script>";
+                // echo "<script>location='login.php'</script>";
             }
+        } else {
+            // $error = 'Data tidak boleh kosong !!';
+            echo "<script>alert(Data tidak boleh kosong!')</script>";
         }
     }
 }

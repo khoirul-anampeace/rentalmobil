@@ -53,7 +53,7 @@
                         </table>
                     </div>
                     <div class="col-md-2 button-detailmobil">
-                        <a href="" class="btn btn-primary float-md-end">Book</a>
+                        <a href=".?page=checkoutLepasKunci&id_mobil=<?= $row["id_mobil"] ?>" class=" btn btn-primary float-md-end">Book</a>
                     </div>
                 </div>
                 <h5 class="mt-3">Kondisi Unit</h5>

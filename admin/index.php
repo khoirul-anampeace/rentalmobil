@@ -65,7 +65,7 @@ if (isset($_SESSION["id_admin"])) {
         <div class="leftside-menu">
 
             <!-- LOGO -->
-            <a href="index.html" class="logo text-center logo-light">
+            <a href=".?page=dashboard" class="logo text-center logo-light">
                 <span class="logo-lg">
                     <img src="../assets/images/logomerpati.png" alt="" height="45">
                 </span>
@@ -75,7 +75,7 @@ if (isset($_SESSION["id_admin"])) {
             </a>
 
             <!-- LOGO -->
-            <a href="index.html" class="logo text-center logo-dark">
+            <a href=".?page=dashboard " class="logo text-center logo-dark">
                 <span class="logo-lg">
                     <img src="../assets/images/logomerpati.png" alt="" height="16">
                 </span>
