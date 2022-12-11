@@ -2,149 +2,194 @@
     <div class="container" id="">
         <h1>Checkout</h1>
         <?php
+        // id customer
+        // mengambil data barang dengan kode paling besar
+        $queryid = mysqli_query($connect, "SELECT max(id_tlepaskunci) as idTerbesar FROM transaksi_lepaskunci");
+        $data = mysqli_fetch_array($queryid);
+        $id_transaksi = $data['idTerbesar'];
+
+        // mengambil angka dari kode barang terbesar, menggunakan fungsi substr
+        // dan diubah ke integer dengan (int)
+        $urutan = (int) substr($id_transaksi, 3, 3);
+
+        // bilangan yang diambil ini ditambah 1 untuk menentukan nomor urut berikutnya
+        $urutan++;
+
+        // membentuk kode barang baru
+        // perintah sprintf("%03s", $urutan); berguna untuk membuat string menjadi 3 karakter
+        // misalnya perintah sprintf("%03s", 15); maka akan menghasilkan '015'
+        // angka yang diambil tadi digabungkan dengan kode huruf yang kita inginkan, misalnya BRG 
+        $huruf = "TRL";
+        $id_transaksi = $huruf . sprintf("%03s", $urutan);
+        // echo $id_transaksi;
+
+
         $getIdMobil = $_GET["id_mobil"];
-        $mobil = query("SELECT * FROM mobil JOIN kondisi_mobil ON mobil.id_mobil = kondisi_mobil.id_mobil WHERE mobil.id_mobil = '$getIdMobil'");
-        $no = 1;
-        foreach ($mobil as $row) :
+        $mobil = mysqli_query($connect, "SELECT * FROM mobil JOIN kondisi_mobil ON mobil.id_mobil = kondisi_mobil.id_mobil WHERE mobil.id_mobil = '$getIdMobil'");
+        $rowMobil = mysqli_fetch_array($mobil);
+
+        $id_customer = $_SESSION["id_customer"];
+        $customer = mysqli_query($connect, "SELECT * FROM customer WHERE id_customer = '$id_customer'");
+        $rowCustomer = mysqli_fetch_array($customer);
         ?>
-            <form method="POST">
-                <div class="row checkoutlepaskunci">
-                    <div class="col-md-8 checkleft">
-                        <div class="box">
-                            <div class="titleCheckout">
-                                <!-- <img src="../assets/images/bgcheckout.png"> -->
-                                <h5>Lepas Kunci</h5>
+        <form method="POST">
+            <div class="row checkoutlepaskunci">
+                <div class="col-md-8 checkleft">
+                    <div class="box">
+                        <div class="titleCheckout">
+                            <!-- <img src="../assets/images/bgcheckout.png"> -->
+                            <h5>Lepas Kunci</h5>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12">
+                                <img src="../assets/images/mobil/<?= $rowMobil["depan"] ?>">
                             </div>
-                            <div class="row">
-                                <div class="col-md-3 col-sm-12">
-                                    <img src="../assets/images/mobil/<?= $row["depan"] ?>">
-                                </div>
-                                <div class="col-md-8 col-sm-12">
-                                    <h6><?= $row["merk"] ?> </h6>
-                                    <h6><?= $row["no_plat"] ?></h6>
-                                    <h6><?= $row["warna"] ?></h6>
-                                </div>
+                            <div class="col-md-8 col-sm-12">
+                                <h6><?= $rowMobil["merk"] ?> </h6>
+                                <h6><?= $rowMobil["no_plat"] ?></h6>
+                                <h6><?= $rowMobil["warna"] ?></h6>
                             </div>
-                            <div class="row mt-4">
-                                <div class="col-md-6 mb-4">
-                                    <label for="berangkat" class="form-label">Berangkat</label>
-                                    <input type="date" name="berangkat" class="form-control hitungTotal" id="berangkat" value="HAHA" autofocus required autocomplete="off">
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="kembali" class="form-label">Kembali</label>
-                                    <input type="date" name="kembali" class="form-control hitungTotal" id="kembali" required autocomplete="off">
-                                </div>
-                                <div class="col-md-12 mb-4">
-                                    <label for="tujuan" class="form-label">Tujuan</label>
-                                    <input type="text" name="tujuan" class="form-control" id="tujuan" required autocomplete="off">
-                                </div>
-                                <div class="col-md-12 mb-4">
-                                    <label for="catatan" class="form-label">Catatan</label>
-                                    <textarea name="catatan" class="form-control" id="catatan" required autocomplete="off"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <h6>Peraturan dan Tata Tertib </h6>
-                                    <ol>
-                                        <li>Jika melewati batas sewa yang telah ditentukan tersebut dalam nota, maka 10 jam sebelumnya pelanggan harus meminta persetujuan perpanjangan sewa pada MERPATI Rent a car. Jika tidak meminta persetujuan diwajibkan membayar kompensasi sebesar seperempat dari harga sewa perhari</li>
-                                        <li>Terlambat mengembalikan mobil dari waktu yang ditentukan akan dikenakan Charge Overtime (kelebihan jam) sebesar sepuluh persen harga sewa perhari dikalikan jumlah jam keterlambatan</li>
-                                        <li>Jika karena suatu hal pelanggan tidak dapat membayar biaya sewa mobil maksimal tiga hari setelah mobil kembali, pelanggan harus memberikan jaminan yang nilainya minimal dua kali dari jumlah tanggungan</li>
-                                        <li>Jika menyewa mobil tanpa sopir di Merpati Rent a Car, segala bentuk resiko yang terjadi selama membawa mobil yang diakibatkan oleh kecelakaan, kelalaian, kecerobohan, kerusuhan, kehilangan, pencurian, penggelapan dan bencana alam, maka pelanggan harus mengganti 100% (Seratus Persen) sejumlah kerugian yang terjadi</li>
-                                        <li>Selama proses pergantian dan atau perbaikan mobil yang dimaksud point empat, pelanggan dikenakan biaya sewa penuh sebesar harga sewa harian</li>
-                                        <li>Jika karena suatu hal pelanggan bisa mengganti kerugian, maka pelanggan harus memberikan jaminan barang yang nilainya dua kali dari jumlah tanggungan</li>
-                                        <li>Jika pelanggan masih menggunakan mobil Merpati Rent a Car tapi masih belum membayar biaya sewa lebih dari dua hari, maka pelanggan yang bersangkutan harus mengembalikan mobil yang disewa pada Merpati Rent a Car</li>
-                                        <li>Jika pada saat pengembalian mobil ada bagian atau perlengkapan mobil yang hilang atau rusak tidak sesuai denan waktu membawa, maka pelanggan harus mengganti 100% (Seratus Persen) sesuai dengan kerugian yang terjadi</li>
-                                        <li>Pelanggan harus mengisi dan menanda tangani surat perjanjian yang ditulis sendiri oleh pelanggan sehubungan setuju tidaknya dengan peraturan dan tata tertib yang berlaku di Merpati Rent a Car</li>
-                                        <li>Pelanggan dilarang keras memindah tangankan atau menggadaikan atau menjual mobil sewa</li>
-                                    </ol>
-                                    <div class="flexnih">
-                                        <div class="inputnih">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        </div>
-                                        <div class="labelnih">
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                <h6>Saya bersedia mengikuti peraturan dan tata tertib merpati rent. Setuju tanpa ada paksaan dari siapapun serta siap bertanggung jawab atas unit yang saya sewa.</h6>
-                                            </label>
-                                        </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-md-6 mb-4">
+                                <label for="berangkat" class="form-label">Berangkat</label>
+                                <input type="date" name="berangkat" class="form-control hitungTotal" id="berangkat" autofocus required autocomplete="off">
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="kembali" class="form-label">Kembali</label>
+                                <input type="date" name="kembali" class="form-control hitungTotal" id="kembali" required autocomplete="off">
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <label for="tujuan" class="form-label">Daerah Tujuan</label>
+                                <input type="text" name="tujuan" class="form-control" id="tujuan" placeholder="contoh Jember" required autocomplete="off">
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <label for="catatan" class="form-label">Keterangan Penyewaan</label>
+                                <textarea name="catatan" class="form-control" id="catatan" required autocomplete="off" placeholder="Keperluan menyewa mobil lepas kunci"></textarea>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="tujuan" class="form-label">Harga Sewa</label>
+                                <input type="text" name="tujuan" class="form-control" id="tujuan" placeholder="contoh Jember" required autocomplete="off">
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="tujuan" class="form-label">Lama sewa</label>
+                                <input type="text" name="tujuan" class="form-control" id="tujuan" placeholder="contoh Jember" required autocomplete="off">
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="tujuan" class="form-label">Dp</label>
+                                <input type="text" name="tujuan" class="form-control" id="tujuan" placeholder="contoh Jember" required autocomplete="off">
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="tujuan" class="form-label">Total Harga</label>
+                                <input type="text" name="tujuan" class="form-control" id="tujuan" placeholder="contoh Jember" required autocomplete="off">
+                            </div>
+                            <div class="col-12">
+                                <h6>Peraturan dan Tata Tertib </h6>
+                                <ol>
+                                    <li>Jika melewati batas sewa yang telah ditentukan tersebut dalam nota, maka 10 jam sebelumnya pelanggan harus meminta persetujuan perpanjangan sewa pada MERPATI Rent a car. Jika tidak meminta persetujuan diwajibkan membayar kompensasi sebesar seperempat dari harga sewa perhari</li>
+                                    <li>Terlambat mengembalikan mobil dari waktu yang ditentukan akan dikenakan Charge Overtime (kelebihan jam) sebesar sepuluh persen harga sewa perhari dikalikan jumlah jam keterlambatan</li>
+                                    <li>Jika karena suatu hal pelanggan tidak dapat membayar biaya sewa mobil maksimal tiga hari setelah mobil kembali, pelanggan harus memberikan jaminan yang nilainya minimal dua kali dari jumlah tanggungan</li>
+                                    <li>Jika menyewa mobil tanpa sopir di Merpati Rent a Car, segala bentuk resiko yang terjadi selama membawa mobil yang diakibatkan oleh kecelakaan, kelalaian, kecerobohan, kerusuhan, kehilangan, pencurian, penggelapan dan bencana alam, maka pelanggan harus mengganti 100% (Seratus Persen) sejumlah kerugian yang terjadi</li>
+                                    <li>Selama proses pergantian dan atau perbaikan mobil yang dimaksud point empat, pelanggan dikenakan biaya sewa penuh sebesar harga sewa harian</li>
+                                    <li>Jika karena suatu hal pelanggan bisa mengganti kerugian, maka pelanggan harus memberikan jaminan barang yang nilainya dua kali dari jumlah tanggungan</li>
+                                    <li>Jika pelanggan masih menggunakan mobil Merpati Rent a Car tapi masih belum membayar biaya sewa lebih dari dua hari, maka pelanggan yang bersangkutan harus mengembalikan mobil yang disewa pada Merpati Rent a Car</li>
+                                    <li>Jika pada saat pengembalian mobil ada bagian atau perlengkapan mobil yang hilang atau rusak tidak sesuai denan waktu membawa, maka pelanggan harus mengganti 100% (Seratus Persen) sesuai dengan kerugian yang terjadi</li>
+                                    <li>Pelanggan harus mengisi dan menanda tangani surat perjanjian yang ditulis sendiri oleh pelanggan sehubungan setuju tidaknya dengan peraturan dan tata tertib yang berlaku di Merpati Rent a Car</li>
+                                    <li>Pelanggan dilarang keras memindah tangankan atau menggadaikan atau menjual mobil sewa</li>
+                                </ol>
+                                <div class="flexnih">
+                                    <div class="inputnih">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    </div>
+                                    <div class="labelnih">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            <h6>Saya bersedia mengikuti peraturan dan tata tertib merpati rent. Setuju tanpa ada paksaan dari siapapun serta siap bertanggung jawab atas unit yang saya sewa.</h6>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 checkright">
-                        <div class="box">
-                            <h5>Rincian harga</h5>
-                            <table>
-                                <tr>
-                                    <td class="first">
-                                        <h6>Harga Sewa</h6>
-                                    </td>
-                                    <td style="width: 5%;">:</td>
-                                    <td class="second">
-                                        <p>Rp <?= rupiah($row["harga"]) ?></p>
-                                        <p hidden id="hargaSewa"> <?= $row["harga"] ?></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="first">
-                                        <h6>Lama Sewa</h6>
-                                    </td>
-                                    <td style="width: 5%;">:</td>
-                                    <td>
-                                        <p id="lamaSewa"></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="first">
-                                        <h6>Total Harga</h6>
-                                    </td>
-                                    <td style="width: 5%;">:</td>
-                                    <td>
-                                        <p id="totalHarga"></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="first">
-                                        <h6>DP 25%</h6>
-                                    </td>
-                                    <td style="width: 5%;">:</td>
-                                    <td>
-                                        <p id="dp"></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="first">
-                                        <h6>Sisa</h6>
-                                    </td>
-                                    <td style="width: 5%;">:</td>
-                                    <td>
-                                        <p id="sisa"></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="first">
-                                        <h6>No Rek Pembayaran</h6>
-                                    </td>
-                                    <td style="width: 5%;">:</td>
-                                    <td>
-                                        <p>340123001 (BRI) An. Anam</p>
-                                    </td>
-                                </tr>
-                            </table>
-                            <h5>Upload Bukti Pembayaran</h5>
-                            <div class="pembayaran">
-                                <input type="file" name="pembayaran" class="form-control" id="imageUploadKK" onchange="readURLKK(this);" placeholder="Jember" required autocomplete="off">
-                                <div id="preview">
-                                    <img class="mt-3" src="" width="100%" id="thumbPembayaran" height="auto">
-                                </div>
+                </div>
+                <div class="col-md-4 checkright">
+                    <div class="box">
+                        <h5>Rincian harga</h5>
+                        <table>
+                            <tr>
+                                <td class="first">
+                                    <h6>Harga Sewa</h6>
+                                </td>
+                                <td style="width: 5%;">:</td>
+                                <td class="second">
+                                    <p>Rp <?= rupiah($rowMobil["harga"]) ?></p>
+                                    <p hidden id="hargaSewa"> <?= $rowMobil["harga"] ?></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">
+                                    <h6>Lama Sewa</h6>
+                                </td>
+                                <td style="width: 5%;">:</td>
+                                <td>
+                                    <p id="lamaSewa"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">
+                                    <h6>Total Harga</h6>
+                                </td>
+                                <td style="width: 5%;">:</td>
+                                <td>
+                                    <p id="totalHarga"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">
+                                    <h6>DP 25%</h6>
+                                </td>
+                                <td style="width: 5%;">:</td>
+                                <td>
+                                    <p id="dp"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">
+                                    <h6>Sisa</h6>
+                                </td>
+                                <td style="width: 5%;">:</td>
+                                <td>
+                                    <p id="sisa"></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="first">
+                                    <h6>No Rek Pembayaran</h6>
+                                </td>
+                                <td style="width: 5%;">:</td>
+                                <td>
+                                    <p>340123001 (BRI) An. Anam</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <h5>Upload Bukti Pembayaran</h5>
+                        <div class="pembayaran">
+                            <input type="file" name="pembayaran" class="form-control" id="imageUploadKK" onchange="readURLKK(this);" placeholder="Jember" required autocomplete="off">
+                            <div id="preview">
+                                <img class="mt-3" src="" width="100%" id="thumbPembayaran" height="auto">
                             </div>
-                            <img class="barcode" src="../assets/images/code39.png" alt="">
-                            <button name="sewa" class="btn btn-primary">SEWA</button>
                         </div>
+                        <?php
+                        require("barcode.php");
+                        $transaksi_code = $id_transaksi . "_" . $getIdMobil . "_" . $rowCustomer["nama_lengkap"];
+                        echo '<img class="barcode" src="data:image/png;base64,' . base64_encode($generator->getBarcode($transaksi_code, $generator::TYPE_CODE_128)) . '">';
+                        ?>
+                        <!-- <img class="barcode" src="../assets/images/code39.png" alt=""> -->
+                        <button name="sewa" class="btn btn-primary">SEWA</button>
                     </div>
                 </div>
-            </form>
+            </div>
+        </form>
         <?php
-        endforeach;
         ?>
     </div>
 </section>

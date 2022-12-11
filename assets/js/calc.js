@@ -11,6 +11,27 @@ function rupiah(bilangan) {
     return rupiah;
 }
 
+function getDateNow() {
+    // Create a date object from a date string
+    var date = new Date();
+
+    // Get year, month, and day part from the date
+    var year = date.toLocaleString("default", {
+        year: "numeric"
+    });
+    var month = date.toLocaleString("default", {
+        month: "2-digit"
+    });
+    var day = date.toLocaleString("default", {
+        day: "2-digit"
+    });
+
+    // Generate yyyy-mm-dd date string
+    var formattedDate = year + "-" + month + "-" + day;
+
+    return formattedDate;
+}
+
 $(".hitungTotal").on('input', function () {
     var hargaSewa = document.getElementById('hargaSewa').innerHTML;
     hargaSewa = parseFloat(hargaSewa);
@@ -21,6 +42,7 @@ $(".hitungTotal").on('input', function () {
 
     let date1 = document.getElementById('berangkat').value;
     let date2 = document.getElementById('kembali').value;
+    let dateNow = getDateNow();
 
     // document.getElementById('hasilgak').value = price * qty;
     // let hasil = price * qty;
@@ -29,8 +51,10 @@ $(".hitungTotal").on('input', function () {
 
     var dob1 = new Date(date1);
     var dob2 = new Date(date2);
+
     console.log("date1" + date1)
     console.log("date2 " + date2)
+    console.log("date Now" + dateNow)
     let hasildate = dob2.getTime() - dob1.getTime();
     let lamaSewa = hasildate / (1000 * 3600 * 24)
     lamaSewa = parseFloat(lamaSewa);
@@ -39,10 +63,15 @@ $(".hitungTotal").on('input', function () {
     let totalSewa = hargaSewa * lamaSewa;
     let dp = 25 / 100 * totalSewa;
     let sisa = totalSewa - dp;
-
+    let hitungvalidasitanggal = dateNow - dob1;
+    if (hitungvalidasitanggal < 0) {
+        console.info("tanggal tidak valid");
+    } else {
+        console.info("tanggal valid")
+    }
     // console.log("hasil " + hasil)
     document.getElementById('lamaSewa').innerHTML = lamaSewa + " Hari";
-    document.getElementById('totalHarga').innerHTML = "Rp" + rupiah(totalSewa);
-    document.getElementById('dp').innerHTML = "Rp" + rupiah(dp);
-    document.getElementById('sisa').innerHTML = "Rp" + rupiah(sisa);
+    document.getElementById('totalHarga').innerHTML = "Rp " + rupiah(totalSewa);
+    document.getElementById('dp').innerHTML = "Rp " + rupiah(dp);
+    document.getElementById('sisa').innerHTML = "Rp " + rupiah(sisa);
 });
