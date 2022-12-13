@@ -65,23 +65,27 @@
                             </div>
                             <div class="col-md-12 mb-4">
                                 <label for="catatan" class="form-label">Keterangan Penyewaan</label>
-                                <textarea name="catatan" class="form-control" id="catatan" required autocomplete="off" placeholder="Keperluan menyewa mobil lepas kunci"></textarea>
+                                <textarea name="keterangan" class="form-control" id="catatan" required autocomplete="off" placeholder="Keperluan menyewa mobil lepas kunci"></textarea>
                             </div>
                             <div class="col-md-6 mb-4">
                                 <label for="tujuan" class="form-label">Harga Sewa</label>
-                                <input type="text" name="tujuan" class="form-control" id="tujuan" placeholder="contoh Jember" required autocomplete="off">
+                                <input type="number" name="hargasewa" value="<?= $rowMobil["harga"] ?>" class="form-control" id="InHarga" required autocomplete="off">
                             </div>
                             <div class="col-md-6 mb-4">
                                 <label for="tujuan" class="form-label">Lama sewa</label>
-                                <input type="text" name="tujuan" class="form-control" id="tujuan" placeholder="contoh Jember" required autocomplete="off">
+                                <input type="number" name="lamasewa" class="form-control" id="InLama" required autocomplete="off">
                             </div>
                             <div class="col-md-6 mb-4">
                                 <label for="tujuan" class="form-label">Dp</label>
-                                <input type="text" name="tujuan" class="form-control" id="tujuan" placeholder="contoh Jember" required autocomplete="off">
+                                <input type="number" name="dp" class="form-control" id="InDp" required autocomplete="off">
                             </div>
                             <div class="col-md-6 mb-4">
                                 <label for="tujuan" class="form-label">Total Harga</label>
-                                <input type="text" name="tujuan" class="form-control" id="tujuan" placeholder="contoh Jember" required autocomplete="off">
+                                <input type="number" name="totalharga" class="form-control" id="InTotal" required autocomplete="off">
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <label for="tujuan" class="form-label">Sisa</label>
+                                <input type="number" name="sisa" class="form-control" id="InSisa" required autocomplete="off">
                             </div>
                             <div class="col-12">
                                 <h6>Peraturan dan Tata Tertib </h6>

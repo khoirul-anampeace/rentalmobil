@@ -11,9 +11,9 @@ function rupiah(bilangan) {
     return rupiah;
 }
 
-function getDateNow() {
+function getDateNow(date = new Date()) {
     // Create a date object from a date string
-    var date = new Date();
+    var date = new Date(date);
 
     // Get year, month, and day part from the date
     var year = date.toLocaleString("default", {
@@ -49,12 +49,13 @@ $(".hitungTotal").on('input', function () {
 
 
 
-    var dob1 = new Date(date1);
-    var dob2 = new Date(date2);
+    let dob1 = new Date(date1);
+    let dob2 = new Date(date2);
+    let datesekarang = new Date();
 
-    console.log("date1" + date1)
-    console.log("date2 " + date2)
-    console.log("date Now" + dateNow)
+    console.log("date1" + dob1)
+    console.log("date2 " + dob1)
+    console.log("date Now" + datesekarang)
     let hasildate = dob2.getTime() - dob1.getTime();
     let lamaSewa = hasildate / (1000 * 3600 * 24)
     lamaSewa = parseFloat(lamaSewa);
@@ -63,15 +64,43 @@ $(".hitungTotal").on('input', function () {
     let totalSewa = hargaSewa * lamaSewa;
     let dp = 25 / 100 * totalSewa;
     let sisa = totalSewa - dp;
-    let hitungvalidasitanggal = dateNow - dob1;
-    if (hitungvalidasitanggal < 0) {
-        console.info("tanggal tidak valid");
+    let hitungsekarang = dob1.getTime() - datesekarang.getTime();
+    let hitunglamasekarang = hitungsekarang / (1000 * 3600 * 24);
+    // console.info("hitung validasi" + hitungvalidasitanggal)
+    if (lamaSewa <= 0) {
+        alert("tanggal kembali tidak valid");
+        document.getElementById('lamaSewa').innerHTML = "Tanggal tidak valid";
+        document.getElementById('totalHarga').innerHTML = "Tanggal tidak valid";
+        document.getElementById('dp').innerHTML = "Tanggal tidak valid";
+        document.getElementById('sisa').innerHTML = "Tanggal tidak valid";
+        document.getElementById('kembali').value = 0;
+
+        document.getElementById('InLama').value = 0;
+        document.getElementById('InTotal').value = 0;
+        document.getElementById('InDp').value = 0;
+        document.getElementById('InSisa').value = 0;
     } else {
         console.info("tanggal valid")
+        document.getElementById('lamaSewa').innerHTML = lamaSewa + " Hari";
+        document.getElementById('totalHarga').innerHTML = "Rp " + rupiah(totalSewa);
+        document.getElementById('dp').innerHTML = "Rp " + rupiah(dp);
+        document.getElementById('sisa').innerHTML = "Rp " + rupiah(sisa);
+
+        document.getElementById('InLama').value = lamaSewa;
+        document.getElementById('InTotal').value = totalSewa;
+        document.getElementById('InDp').value = dp;
+        document.getElementById('InSisa').value = sisa;
     }
-    // console.log("hasil " + hasil)
-    document.getElementById('lamaSewa').innerHTML = lamaSewa + " Hari";
-    document.getElementById('totalHarga').innerHTML = "Rp " + rupiah(totalSewa);
-    document.getElementById('dp').innerHTML = "Rp " + rupiah(dp);
-    document.getElementById('sisa').innerHTML = "Rp " + rupiah(sisa);
+
+    console.info("____")
+    console.info("hitungsekarang " + hitungsekarang)
+    console.info("hitungvalid " + hitunglamasekarang)
+
+    if (hitunglamasekarang <= 0.0) {
+        alert("Silahkan lakukan pemesanan sehari sebelum keberangkatan")
+        location.reload()
+    } else {
+
+        console.info("tanggal valid bos")
+    }
 });
