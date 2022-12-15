@@ -224,28 +224,24 @@ if (isset($_SESSION["id_customer"])) {
                     <h6>ALAMAT</h6>
                     <p class="address">Jl. Sentot Prawirodirjo X/ 201 Jember Kabupaten Jember Jawa Timur 〒68131
                         Indonesia
-                        <<<<<<< HEAD </a>
-                            <h6 class="mt-5">Jam Kerja</h6>
-                            =======
+                    </p>
+                    <h6 class="mt-5">JAM KERJA</h6>
+                    <div class="row">
+                        <p>24 Jam</p>
+                    </div>
+                    <h6 class="mt-5">PARTNER</h6>
+                    <ul class="horizontal">
+                        <li>
+                            <a href="https://polije.ac.id/">
+                                <img src="assets/images/profileImage/logo_polije.png">
                             </a>
-                            <h6 class="mt-5">JAM KERJA</h6>
-                            >>>>>>> 3dea351d7329969690528d4067b189e59fe428fc
-                            <div class="row">
-                                <p>24 Jam</p>
-                            </div>
-                            <h6 class="mt-5">PARTNER</h6>
-                            <ul class="horizontal">
-                                <li>
-                                    <a href="https://polije.ac.id/">
-                                        <img src="assets/images/profileImage/logo_polije.png">
-                                    </a>
-                                </li>
-                                <li class="ms-3">
-                                    <a href="http://jti.polije.ac.id/">
-                                        <img src="assets/images/profileImage/logo_jti.png" style="width: 100px; margin-top:8px;">
-                                    </a>
-                                </li>
-                            </ul>
+                        </li>
+                        <li class="ms-3">
+                            <a href="http://jti.polije.ac.id/">
+                                <img src="assets/images/profileImage/logo_jti.png" style="width: 100px; margin-top:8px;">
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-12 margintop-5">
                     <h6>LAYANAN</h6>
