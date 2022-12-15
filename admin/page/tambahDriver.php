@@ -43,24 +43,12 @@ $id_driver = $huruf . sprintf("%03s", $urutan);
                             <input type="text" value=" <?= $id_driver ?>" name="idDriver" class="form-control" id="inputMerk" placeholder="" readonly required autocomplete="off">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="inputNama" class="form-label">Nama Driver</label>
-                            <input type="text" name="nama" class="form-control" id="inputMerk" placeholder="Nama Driver" autofocus required autocomplete="off">
+                            <label for="inputNama" class="form-label">Tarif Driver</label>
+                            <input type="text" name="tarif_driver" class="form-control" id="inputMerk" placeholder=" " required autocomplete="off">
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="inputNama" class="form-label">Telphone/WA</label>
-                            <input type="text" name="telp" class="form-control" id="inputMerk" placeholder="" required autocomplete="off">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="inputNama" class="form-label">harga</label>
-                            <input type="text" name="harga" class="form-control" id="inputMerk" placeholder=" " required autocomplete="off">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="inputNama" class="form-label">Alamat</label>
-                            <textarea name="alamat" class="form-control" id="inputMerk" required autocomplete="off"></textarea>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="inputNama" class="form-label">Catatan Untuk Driver</label>
-                            <textarea name="catatan" class="form-control" id="inputMerk" required autocomplete="off"></textarea>
+                        <div class="col-md-12 mb-3">
+                            <label for="inputNama" class="form-label">Wilayah Tujuan</label>
+                            <input type="text" name="wilayah_tujuan" class="form-control" id="inputMerk" placeholder="Nama Driver" autofocus required autocomplete="off">
                         </div>
                         <div class="col-md-12 col-sm-6">
                             <a href=".?pagedaftar=driver" class="btn btn-secondary">Batalkan</a>
@@ -72,15 +60,11 @@ $id_driver = $huruf . sprintf("%03s", $urutan);
                 <?php
                 if (isset($_POST["tambah"])) {
                     // form
-                    $nama = $_POST["nama"];
-                    $telp = $_POST["telp"];
-                    $harga = $_POST["harga"];
-                    $alamat = $_POST["alamat"];
-                    $catatan = $_POST["catatan"];
-                    $status = "Driver Ready";
+                    $wilayah_tujuan = $_POST["wilayah_tujuan"];
+                    $tarif_driver = $_POST["tarif_driver"];
                     // insert
                     $queryInsert = "INSERT INTO driver 
-                        VALUES('$id_driver', '$nama', '$alamat', '$telp', '$status', '$harga', '$catatan')
+                        VALUES('$id_driver', '$wilayah_tujuan', '$tarif_driver')
                     ";
                     mysqli_query($connect, $queryInsert);
                     echo "<script>location='.?page=driver'</script>";

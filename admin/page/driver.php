@@ -28,12 +28,8 @@
                 <tr>
                     <th>No</th>
                     <th>id Driver</th>
-                    <th>Nama</th>
-                    <th>Hp/Telp</th>
-                    <th>Harga</th>
-                    <th>Status</th>
-                    <th>Alamat</th>
-                    <th>Catatan Driver</th>
+                    <th>Wilayah Tujuan</th>
+                    <th>Tarif Driver</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -48,12 +44,8 @@
                     <tr>
                         <td><?= $no ?></td>
                         <td><?= $row["id_driver"] ?></td>
-                        <td><?= $row["nama"] ?></td>
-                        <td><?= $row["telp"] ?></td>
-                        <td><?= $row["harga"] ?></td>
-                        <td><?= $row["status_driver"] ?></td>
-                        <td><?= $row["alamat"] ?></td>
-                        <td><?= $row["catatan"] ?></td>
+                        <td><?= $row["wilayah_tujuan"] ?></td>
+                        <td><?= $row["tarif_driver"] ?></td>
                         <td class="table-action">
                             <!-- <a href=".?page=detailCustomer&id_customer=<?= $row['id_driver'] ?>" class="action-icon"><i class="mdi mdi-eye"></i></a> -->
                             <a href=".?page=updateDriver&id_driver=<?= $row['id_driver'] ?>" class="action-icon"> <i class="mdi mdi-pencil"></i></a>
