@@ -72,6 +72,9 @@
                                 <label for="inputNama" class="form-label">Warna</label>
                                 <input type="text" value="<?= $row["warna"] ?>" name="warna" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
                             </div>
+                            <!-- <label for="inputNama" class="form-label">Status</label> -->
+                            <input type="text" hidden value="<?= $row["status_mobil"] ?>" name="status_mobil" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+
                             <div class="col-md-6 mb-3">
                                 <label for="inputNama" class="form-label">Jumlah Kursi</label>
                                 <input type="text" value="<?= $row["jumlah_kursi"] ?>" name="jumlahkursi" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
@@ -141,7 +144,7 @@ if (isset($_POST["updateData"])) {
     $jumlahkursi = $_POST["jumlahkursi"];
     $harga = $_POST["harga"];
     $catatan = $_POST["catatan"];
-    $status = "Siap Digunakan";
+    $status = $_POST["status_mobil"];
     // foto
 
     // cek foto

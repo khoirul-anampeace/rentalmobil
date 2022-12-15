@@ -133,7 +133,7 @@ $id_mobil = $huruf . sprintf("%03s", $urutan);
                     $jumlahkursi = $_POST["jumlahkursi"];
                     $harga = $_POST["harga"];
                     $catatan = $_POST["catatan"];
-                    $status = "Siap Digunakan";
+                    $status = "Tersedia";
                     // foto
                     $namaFMobilDepan = $id_mobil . "_fotoMobilDepan_";
                     $fotoDepan = upload($namaFMobilDepan, "fdepan", "mobil");

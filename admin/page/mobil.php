@@ -26,6 +26,7 @@
         <table id="scroll-horizontal-datatable" class="table w-100 nowrap">
             <thead>
                 <tr>
+                    <th>No</th>
                     <th>id Mobil</th>
                     <th>Merk</th>
                     <th>Jenis</th>
@@ -37,6 +38,7 @@
                     <th>Warna</th>
                     <th>Status</th>
                     <th>Jumlah Kursi</th>
+                    <th>Catatan</th>
                     <th>Harga</th>
                     <th>Foto Depan</th>
                     <th>Foto Belakang</th>
@@ -66,6 +68,7 @@
                         <td><?= $row["warna"] ?></td>
                         <td><?= $row["status_mobil"] ?></td>
                         <td><?= $row["jumlah_kursi"] ?></td>
+                        <td><?= $row["catatan"] ?></td>
                         <td><?= $row["harga"] ?></td>
                         <td>
                             <img src="../assets/images/mobil/<?= $row["depan"] ?>" width="100%" height="100%">
