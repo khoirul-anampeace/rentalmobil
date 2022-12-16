@@ -101,15 +101,38 @@ if (isset($_SESSION["id_admin"])) {
                         <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
                             <i class="uil-table"></i>
                             <!-- <span class="badge bg-success float-end">4</span> -->
-                            <span>Transaksi</span>
+                            <span>Transaksi Lepas Kunci</span>
                         </a>
                         <div class="collapse" id="sidebarDashboards">
                             <ul class="side-nav-second-level">
                                 <li>
-                                    <a href=".?page=lepas-kunci">Lepas Kunci</a>
+                                    <a href=".?page=transaksiBaruLepasKunci">Transaksi Baru</a>
                                 </li>
                                 <li>
-                                    <a href="#">Dengan Driver</a>
+                                    <a href="#">Pengembalian</a>
+                                </li>
+                                <li>
+                                    <a href="#">Semua Transaksi</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#sidebarDashboards" aria-expanded="false" aria-controls="sidebarDashboards" class="side-nav-link">
+                            <i class="uil-table"></i>
+                            <!-- <span class="badge bg-success float-end">4</span> -->
+                            <span>Transaksi Dengan Driver</span>
+                        </a>
+                        <div class="collapse" id="sidebarDashboards">
+                            <ul class="side-nav-second-level">
+                                <li>
+                                    <a href=".?page=lepas-kunci">Transaksi Baru</a>
+                                </li>
+                                <li>
+                                    <a href="#">Pengembalian</a>
+                                </li>
+                                <li>
+                                    <a href="#">Semua Transaksi</a>
                                 </li>
                             </ul>
                         </div>
