@@ -4,7 +4,7 @@
         <?php
         // id customer
         // mengambil data barang dengan kode paling besar
-        $queryid = mysqli_query($connect, "SELECT max(id_tlepaskunci) as idTerbesar FROM transaksi_lepaskunci");
+        $queryid = mysqli_query($connect, "SELECT max(id_transaksi) as idTerbesar FROM transaksi");
         $data = mysqli_fetch_array($queryid);
         $id_transaksi = $data['idTerbesar'];
 
@@ -19,7 +19,7 @@
         // perintah sprintf("%03s", $urutan); berguna untuk membuat string menjadi 3 karakter
         // misalnya perintah sprintf("%03s", 15); maka akan menghasilkan '015'
         // angka yang diambil tadi digabungkan dengan kode huruf yang kita inginkan, misalnya BRG 
-        $huruf = "TRL";
+        $huruf = "TRS";
         $id_transaksi = $huruf . sprintf("%03s", $urutan);
         // echo $id_transaksi;
 
@@ -32,7 +32,7 @@
         $customer = mysqli_query($connect, "SELECT * FROM customer WHERE id_customer = '$id_customer'");
         $rowCustomer = mysqli_fetch_array($customer);
         ?>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <div class="row checkoutlepaskunci">
                 <div class="col-md-8 checkleft">
                     <div class="box">
@@ -40,6 +40,7 @@
                             <!-- <img src="../assets/images/bgcheckout.png"> -->
                             <h5>Lepas Kunci</h5>
                         </div>
+                        <!-- <h4>Id Transaksaksi </h4> -->
                         <div class="row">
                             <div class="col-md-3 col-sm-12">
                                 <img src="../assets/images/mobil/<?= $rowMobil["depan"] ?>">
@@ -61,11 +62,11 @@
                             </div>
                             <div class="col-md-12 mb-4">
                                 <label for="tujuan" class="form-label">Daerah Tujuan</label>
-                                <input type="text" name="tujuan" class="form-control" id="tujuan" placeholder="contoh Jember" required autocomplete="off">
+                                <input type="text" name="daerah_tujuan" class="form-control" id="tujuan" placeholder="contoh Jember" required autocomplete="off">
                             </div>
                             <div class="col-md-12 mb-4">
-                                <label for="catatan" class="form-label">Keterangan Penyewaan</label>
-                                <textarea name="keterangan" class="form-control" id="catatan" required autocomplete="off" placeholder="Keperluan menyewa mobil lepas kunci"></textarea>
+                                <label for="keperluan" class="form-label">Keperluan Penyewaan</label>
+                                <textarea name="keperluan" class="form-control" id="keperluan" required autocomplete="off" placeholder="Keperluan menyewa mobil lepas kunci"></textarea>
                             </div>
                             <div class="col-md-6 mb-4">
                                 <label for="tujuan" class="form-label">Harga Sewa</label>
@@ -103,7 +104,7 @@
                                 </ol>
                                 <div class="flexnih">
                                     <div class="inputnih">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <input class="form-check-input" name="checkboxperaturan" type="checkbox" value="" id="flexCheckDefault">
                                     </div>
                                     <div class="labelnih">
                                         <label class="form-check-label" for="flexCheckDefault">
@@ -171,13 +172,13 @@
                                 </td>
                                 <td style="width: 5%;">:</td>
                                 <td>
-                                    <p>340123001 (BRI) An. Anam</p>
+                                    <p>398765765436787 <br> (BRI) An. Anam</p>
                                 </td>
                             </tr>
                         </table>
                         <h5>Upload Bukti Pembayaran</h5>
                         <div class="pembayaran">
-                            <input type="file" name="pembayaran" class="form-control" id="imageUploadKK" onchange="readURLKK(this);" placeholder="Jember" required autocomplete="off">
+                            <input type="file" name="buktibayar" class="form-control" id="imageUploadKK" onchange="readURLKK(this);" placeholder="Jember" required autocomplete="off">
                             <div id="preview">
                                 <img class="mt-3" src="" width="100%" id="thumbPembayaran" height="auto">
                             </div>
@@ -193,10 +194,58 @@
                 </div>
             </div>
         </form>
-        <?php
-        ?>
     </div>
 </section>
+<?php
+if (isset($_POST["sewa"])) {
+    if (isset($_POST["checkboxperaturan"])) {
+        // id
+        $customer_id = $id_customer;
+        $id_mobil = $getIdMobil;
+        $id_admin = "ADM000";
+        $id_driver = "Tanpa Driver";
+        $jenis_transaksi = "lepas kunci";
+        // form
+        $berangkat = $_POST["berangkat"];
+        $kembali = $_POST["kembali"];
+        $daerah_tujuan = $_POST["daerah_tujuan"];
+        $keperluan = $_POST["keperluan"];
+        $harga_sewa = $_POST["hargasewa"];
+        $tarif_driver = 0;
+        $lama_sewa = $_POST["lamasewa"];
+        $dp = $_POST["dp"];
+        $total_harga = $_POST["totalharga"];
+        $sisa = $_POST["sisa"];
+        $status_transaksi = "Menunggu Konfirmasi";
+        $catatan = "belum ada";
+        $denda = 0;
+        // mobil
+        $status_mobil = "Beroperasi";
+        // foto
+        $namaBuktiBayar = $id_transaksi . "_fotoBuktiPembayaran_";
+        $fotoBayar = upload($namaBuktiBayar, "buktibayar", "transaksi");
+        if (!$fotoBayar) {
+            return false;
+        }
+        // insert
+        $query1 = "INSERT INTO transaksi 
+                 VALUES('$id_transaksi', '$id_admin', '$id_mobil', '$id_customer', '$id_driver', '$jenis_transaksi', '$berangkat', '$kembali', '$lama_sewa', '$daerah_tujuan', '$keperluan', '$status_transaksi', '$catatan')
+             ";
+        $send1 =  mysqli_query($connect, $query1);
+        $query2 = "INSERT INTO pembayaran 
+                 VALUES('', '$id_transaksi', '$harga_sewa',  '$tarif_driver', '$dp', '$total_harga', '$sisa', '$fotoBayar', '$denda')
+             ";
+        $send2 = mysqli_query($connect, $query2);
+        $query3 = "UPDATE mobil SET status_mobil = '$status_mobil' WHERE id_mobil = '$id_mobil'";
+        $send3 = mysqli_query($connect, $query3);
+        echo "<script>alert('Transaksi berhasil, silahkan menunggu konfirmasi dari pihak kami')</script>";
+        echo "<script>location='.?page=dashboard'</script>";
+    } else {
+        echo "<script>alert('Silahkan baca dan centang pernjanjian')</script>";
+    }
+}
+?>
+
 <script type="text/javascript">
     // preview upload foto KK
     function readURLKK(uppembayaran) {
