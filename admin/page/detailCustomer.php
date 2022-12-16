@@ -135,7 +135,7 @@ foreach ($customer as $row) :
             <div class="card tilebox-one">
                 <div class="card-body">
                     <h5 class="text-uppercase mt-0">ACTION</h5>
-                    <div class="btn btn-danger w-100">SUSPEND AKUN</div>
+                    <a href=".?page=updateCustomer&id_customer=<?= $row["id_customer"] ?>" class="btn btn-warning w-100">Update Data</a>
                 </div> <!-- end card-body-->
             </div>
             <!--end card-->
