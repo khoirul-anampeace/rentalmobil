@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <label for="inputNama" class="form-label">Password Lama</label>
-                    <input type="text" name="passwordlama" class="form-control" id="inputNama" placeholder="Masukkan password baru" autofocus autocomplete="off">
+                    <input type="text" name="passwordlama" class="form-control" id="inputNama" placeholder="Masukkan password lama" autofocus autocomplete="off">
                 </div>
                 <div class="col-md-6 mb-4">
                     <label for="inputNama" class="form-label">Password Baru</label>
