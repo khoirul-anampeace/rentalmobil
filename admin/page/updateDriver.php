@@ -29,14 +29,14 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="inputNama" class="form-label">Tarif Driver</label>
-                                <input type="text" value="<?= $row["tarif_driver"] ?>" name="tarif_driver" class="form-control" id="inputMerk" placeholder=" " required autocomplete="off">
+                                <input type="number" value="<?= $row["tarif_driver"] ?>" name="tarif_driver" class="form-control" id="inputMerk" placeholder=" " required autocomplete="off">
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="inputNama" class="form-label">Wilayah Tujuan</label>
-                                <input type="text" value="<?= $row["wilayah_tujuan"] ?>" name="wilayah_tujuan" class="form-control" id="inputMerk" placeholder="Nama Driver" autofocus required autocomplete="off">
+                                <input type="text" value="<?= $row["wilayah_tujuan"] ?>" name="wilayah_tujuan" class="form-control" id="inputMerk" placeholder="Wilayah TUjuan" autofocus required autocomplete="off">
                             </div>
                             <div class="col-md-12 col-sm-6">
-                                <a href=".?pagedaftar=driver" class="btn btn-secondary">Batalkan</a>
+                                <a href=".?page=driver" class="btn btn-secondary">Batalkan</a>
                                 <button class="btn btn-primary float-end" name="update">Update Driver</button>
                             </div>
                         </div>
