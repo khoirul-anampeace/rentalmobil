@@ -1,4 +1,14 @@
 <!-- start page title -->
+<?php
+$getId_admin = $_SESSION["id_admin"];
+$query = "SELECT * FROM admin WHERE id_admin = '$getId_admin'";
+$result = mysqli_query($connect, $query);
+$row = mysqli_fetch_assoc($result);
+if ($row["status_admin"] != "Pemilik") {
+    echo "<script>alert('Anda tidak dapat mengakses halaman ini')</script>";
+    echo "<script>location='.?page=dashboard'</script>";
+}
+?>
 <div class="row">
     <div class="col-12">
         <div class="page-title-box">
