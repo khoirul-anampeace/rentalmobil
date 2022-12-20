@@ -109,10 +109,10 @@ if (isset($_SESSION["id_admin"])) {
                                     <a href=".?page=transaksiBaruLepasKunci">Transaksi Baru</a>
                                 </li>
                                 <li>
-                                    <a href="#">Pengembalian</a>
+                                    <a href=".?page=pengembalianLepasKunci">Pengembalian</a>
                                 </li>
                                 <li>
-                                    <a href="#">Semua Transaksi</a>
+                                    <a href=".?page=semuaLepasKunci">Semua Transaksi</a>
                                 </li>
                             </ul>
                         </div>
