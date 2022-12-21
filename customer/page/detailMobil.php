@@ -7,6 +7,15 @@
             $mobil = query("SELECT * FROM mobil JOIN kondisi_mobil ON mobil.id_mobil = kondisi_mobil.id_mobil WHERE mobil.id_mobil = '$getIdMobil'");
             $no = 1;
             foreach ($mobil as $row) :
+                // checkout check
+                if ($_GET["jenis_sewa"] == "lepasKunci") {
+                    $checkout = ".?page=checkoutLepasKunci&id_mobil=" . $row["id_mobil"];
+                } else if ($_GET["jenis_sewa"] == "denganDriver") {
+                    $checkout = ".?page=checkoutDenganDriver&id_mobil=" . $row["id_mobil"];
+                } else {
+                    echo "<script>alert('Silahkan pilih jenis sewa terlebih dahulu')</script>";
+                    echo "<script>location='.?page=dashboard'</script>";
+                }
             ?>
                 <div class="row detail">
                     <div class="col-md-3 img-detailmobil">
@@ -20,7 +29,7 @@
                         <table>
                             <tr>
                                 <td class="first">
-                                    <h5>Merk</h5>
+                                    <h6>Merk</h6>
                                 </td>
                                 <td class="second">
                                     <p>: <?= $row["merk"] ?></p>
@@ -28,15 +37,15 @@
                             </tr>
                             <tr>
                                 <td class="first">
-                                    <h5>Harga Sewa</h5>
+                                    <h6>Harga Sewa</h6>
                                 </td>
                                 <td>
-                                    <p>: <?= $row["harga"] ?></p>
+                                    <p>: Rp <?= rupiah($row["harga"]) ?></p>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="first">
-                                    <h5>Nomer Polisi</h5>
+                                    <h6>Nomer Polisi</h6>
                                 </td>
                                 <td>
                                     <p>: <?= $row["no_plat"] ?></p>
@@ -44,7 +53,7 @@
                             </tr>
                             <tr>
                                 <td class="first">
-                                    <h5>Warna</h5>
+                                    <h6>Warna</h6>
                                 </td>
                                 <td>
                                     <p>: <?= $row["warna"] ?></p>
@@ -53,7 +62,7 @@
                         </table>
                     </div>
                     <div class="col-md-2 button-detailmobil">
-                        <a href=".?page=checkoutLepasKunci&id_mobil=<?= $row["id_mobil"] ?>" class=" btn btn-primary float-md-end">Book</a>
+                        <a href="<?= $checkout ?>" class=" btn btn-primary float-md-end">Book</a>
                     </div>
                 </div>
                 <h5 class="mt-3">Kondisi Unit</h5>
