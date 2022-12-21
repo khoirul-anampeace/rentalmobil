@@ -518,6 +518,41 @@ footer ul.horizontal li i {
 }
 /* MAIN mobil */
 
+/* Transaki detail */
+.detailTransaksi .text-detailTransaksi table {
+  width: 100%;
+}
+.detailTransaksi .text-detailTransaksi table tr td {
+  /* background-color: #ff7979; */
+  vertical-align: middle;
+  /* border: 2px black solid; */
+}
+.detailTransaksi .text-detailTransaksi table tr td.first {
+  width: 35%;
+}
+.detailTransaksi .text-detailTransaksi table tr td p {
+  font-weight: 700;
+  color: rgb(101, 101, 101);
+}
+.detailTransaksi .text-detailTransaksi table tr {
+  border-bottom: 15px rgba(0, 0, 0, 0) solid;
+}
+.text-detailTransaksi table tr {
+  padding: 10px 0;
+}
+.detailTransaksi .img-detailTransaksi,
+.detailTransaksi .text-detailTransaksi {
+  padding: 0 15px !important;
+}
+.detailTransaksi .img-detailTransaksi img {
+  width: 100%;
+  height: auto;
+}
+.titleTransaksi {
+  height: 30px;
+}
+/* Transaksi detail */
+
 /* Checkout */
 
 #checkout .checkoutlepaskunci {

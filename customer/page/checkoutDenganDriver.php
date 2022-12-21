@@ -39,7 +39,7 @@
                         <div class="box">
                             <div class="titleCheckout">
                                 <!-- <img src="../assets/images/bgcheckout.png"> -->
-                                <h5>Lepas Kunci</h5>
+                                <h5>Pakai Driver</h5>
                             </div>
                             <!-- <h4>Id Transaksaksi </h4> -->
                             <div class="row">
