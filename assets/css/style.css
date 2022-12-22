@@ -436,6 +436,30 @@ footer ul.horizontal li i {
   width: 100%;
   height: 100%;
 }
+.jenismobil {
+  padding: 0;
+  margin-bottom: 15px;
+}
+.jenismobil .btn:hover {
+  background-color: #0b88d1;
+  color: #fff;
+}
+.jenismobil .btn {
+  background-color: #fff;
+  padding: 0 20px !important;
+  border-radius: 8px;
+  color: #000;
+  margin-right: 5px;
+}
+.jenismobil .btn {
+  box-shadow: rgba(0, 0, 0, 0.075) 0px 4px 12px;
+}
+.jenismobil .btn img {
+  width: 3.8rem;
+}
+.jenismobil .btn h6 {
+  font-size: 0.8em;
+}
 /* #mainMobil .pilihmobil a .text-pilihmobil {
   padding: 15px;
 } */
@@ -519,13 +543,18 @@ footer ul.horizontal li i {
 /* MAIN mobil */
 
 /* Transaki detail */
+.detailTransaksi .text-detailTransaksi {
+  padding: 0 15px !important;
+}
 .detailTransaksi .text-detailTransaksi table {
+  background-color: #ffffff !important;
   width: 100%;
+  border-radius: 8px;
 }
 .detailTransaksi .text-detailTransaksi table tr td {
   /* background-color: #ff7979; */
   vertical-align: middle;
-  /* border: 2px black solid; */
+  padding: 6px 10px;
 }
 .detailTransaksi .text-detailTransaksi table tr td.first {
   width: 35%;
@@ -534,17 +563,14 @@ footer ul.horizontal li i {
   font-weight: 700;
   color: rgb(101, 101, 101);
 }
-.detailTransaksi .text-detailTransaksi table tr {
-  border-bottom: 15px rgba(0, 0, 0, 0) solid;
-}
 .text-detailTransaksi table tr {
-  padding: 10px 0;
+  padding: 0 !important;
+  /* background: #e36060 !important; */
 }
-.detailTransaksi .img-detailTransaksi,
-.detailTransaksi .text-detailTransaksi {
+.img-detailTransaksi {
   padding: 0 15px !important;
 }
-.detailTransaksi .img-detailTransaksi img {
+.img-detailTransaksi img {
   width: 100%;
   height: auto;
 }
@@ -636,7 +662,7 @@ footer ul.horizontal li i {
   /* background-color: #e36060; */
   color: rgb(118, 118, 118);
 }
-#checkout .checkoutlepaskunci .checkright .box img.barcode {
+img.barcode {
   width: 100%;
   height: 50px;
   margin: 15px 0;
