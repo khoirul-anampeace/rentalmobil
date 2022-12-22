@@ -38,6 +38,7 @@
                     <th>Keperluan</th>
                     <th>Catatan</th>
                     <th>Total Harga</th>
+                    <th>Denda</th>
                     <th>Status Transaksi</th>
                 </tr>
             </thead>
@@ -60,8 +61,9 @@
                         <td><?= $row["lama_sewa"] ?></td>
                         <td><?= $row["daerah_tujuan"] ?></td>
                         <td><?= $row["keperluan"] ?></td>
-                        <td><?= $row["catatan"] ?></td>
-                        <td><?= $row["total_harga"] ?></td>
+                        <td><?= $row["catatan_transaksi"] ?></td>
+                        <td>Rp <?= rupiah($row["total_harga"]) ?></td>
+                        <td>Rp <?= rupiah($row["denda"]) ?></td>
                         <td><?= $row["status_transaksi"] ?></td>
                     </tr>
 

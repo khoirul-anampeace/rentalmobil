@@ -69,7 +69,7 @@
                         <td><?= $row["status_mobil"] ?></td>
                         <td><?= $row["jumlah_kursi"] ?></td>
                         <td><?= $row["catatan"] ?></td>
-                        <td><?= $row["harga"] ?></td>
+                        <td>Rp <?= rupiah($row["harga"]) ?></td>
                         <td>
                             <img src="../assets/images/mobil/<?= $row["depan"] ?>" width="100%" height="100%">
                         </td>

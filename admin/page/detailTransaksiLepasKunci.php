@@ -448,7 +448,7 @@ foreach ($transaksi as $row) :
                 $query2 = "UPDATE transaksi SET status_transaksi = '$statusSewa' WHERE id_transaksi = '$ambilID_transaksi'";
                 $send2 = mysqli_query($connect, $query2);
                 echo "<script>alert('Transaksi diterima')</script>";
-                echo "<script>location='.?page=transaksiLepasKunci'</script>";
+                echo "<script>location='.?page=pengembalianLepasKunci'</script>";
             } else {
                 echo "<script>alert('Silahkan isi semua survei untuk memproses transaksi')</script>";
             }

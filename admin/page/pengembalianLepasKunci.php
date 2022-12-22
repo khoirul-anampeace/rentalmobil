@@ -65,13 +65,13 @@
                         <td><?= $row["daerah_tujuan"] ?></td>
                         <td><?= $row["keperluan"] ?></td>
                         <td><?= $row["status_transaksi"] ?></td>
-                        <td><?= $row["catatan"] ?></td>
-                        <td><?= $row["harga_mobil"] ?></td>
-                        <td><?= $row["total_harga"] ?></td>
-                        <td><?= $row["dp"] ?></td>
-                        <td><?= $row["sisa"] ?></td>
+                        <td><?= $row["catatan_transaksi"] ?></td>
+                        <td>Rp <?= rupiah($row["harga_mobil"]) ?></td>
+                        <td>Rp <?= rupiah($row["total_harga"]) ?></td>
+                        <td>Rp <?= rupiah($row["dp"]) ?></td>
+                        <td>Rp <?= rupiah($row["sisa"]) ?></td>
                         <td class="table-action">
-                            <a href=".?page=konfirmasiLepasKunci&id_transaksi=<?= $row['id_transaksi'] ?>" class="btn btn-primary">Kembalikan</i></a>
+                            <a href=".?page=detailPengembalianLepasKunci&id_transaksi=<?= $row['id_transaksi'] ?>" class="btn btn-primary">Kembalikan</i></a>
                             <!-- <a href=".?page=updateMobil&id_mobil=<?= $row['id_mobil'] ?>" class="action-icon"> <i class="mdi mdi-pencil"></i></a> -->
                         </td>
                     </tr>
