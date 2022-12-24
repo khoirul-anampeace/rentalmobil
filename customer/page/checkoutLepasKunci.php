@@ -119,6 +119,8 @@
                     </div>
                     <div class="col-md-4 checkright">
                         <div class="box">
+                            <p hidden id="jenisTransaksi">Lepas</p>
+                            <p hidden id="tarifDriver">Lepas</p>
                             <h5>Rincian harga</h5>
                             <table>
                                 <tr>

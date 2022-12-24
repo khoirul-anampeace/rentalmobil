@@ -533,7 +533,7 @@
 
                 <h5 class="header-title mb-3">Bukti Dp</h5>
                 <div class="img-detailTransaksi">
-                    <img src="../assets/images/transaksi/TRS002_fotoBuktiPembayaran_.png" alt="">
+                    <img src="../assets/images/transaksi/<?= $row["bukti_dp"] ?>" alt="">
                 </div>
 
             <?php endforeach; ?>

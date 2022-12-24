@@ -32,6 +32,10 @@
             $id_customer = $_SESSION["id_customer"];
             $customer = mysqli_query($connect, "SELECT * FROM customer WHERE id_customer = '$id_customer'");
             $rowCustomer = mysqli_fetch_array($customer);
+
+            $id_driver = $_GET["id_driver"];
+            $driver = mysqli_query($connect, "SELECT * FROM driver WHERE id_driver = '$id_driver'");
+            $rowDriver = mysqli_fetch_array($driver)
         ?>
             <form method="POST" enctype="multipart/form-data">
                 <div class="row checkoutlepaskunci">
@@ -52,6 +56,10 @@
                                     <h6><?= $rowMobil["warna"] ?></h6>
                                 </div>
                             </div>
+                            <div class="col-md-6 mt-4">
+                                <label for="tujuan" class="form-label">Tarif Driver</label>
+                                <input type="number" value="<?= $rowDriver["tarif_driver"] ?>" name="tarifDriver" class="form-control" id="tarif" required autocomplete="off">
+                            </div>
                             <div class="row mt-4">
                                 <div class="col-md-6 mb-4">
                                     <label for="berangkat" class="form-label">Berangkat</label>
@@ -61,10 +69,7 @@
                                     <label for="kembali" class="form-label">Kembali</label>
                                     <input type="date" name="kembali" class="form-control hitungTotal" id="kembali" required autocomplete="off">
                                 </div>
-                                <div class="col-md-12 mb-4">
-                                    <label for="tujuan" class="form-label">Daerah Tujuan</label>
-                                    <input type="text" name="daerah_tujuan" class="form-control" id="tujuan" placeholder="contoh Jember" required autocomplete="off">
-                                </div>
+
                                 <div class="col-md-12 mb-4">
                                     <label for="keperluan" class="form-label">Keperluan Penyewaan</label>
                                     <textarea name="keperluan" class="form-control" id="keperluan" required autocomplete="off" placeholder="Keperluan menyewa mobil lepas kunci"></textarea>
@@ -72,6 +77,14 @@
                                 <div class="col-md-6 mb-4">
                                     <label for="tujuan" class="form-label">Harga Sewa</label>
                                     <input type="number" name="hargasewa" value="<?= $rowMobil["harga"] ?>" class="form-control" id="InHarga" required autocomplete="off">
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="tujuan" class="form-label">Tarif Driver</label>
+                                    <input type="number" name="tarifdriver" value="<?= $rowDriver["tarif_driver"] ?>" class="form-control" id="InHarga" required autocomplete="off">
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="tujuan" class="form-label">Wilayah Tujuan</label>
+                                    <input type="text" name="wilayahtujuan" value="<?= $rowDriver["wilayah_tujuan"] ?>" class="form-control" id="InHarga" required autocomplete="off">
                                 </div>
                                 <div class="col-md-6 mb-4">
                                     <label for="tujuan" class="form-label">Lama sewa</label>
@@ -119,16 +132,27 @@
                     </div>
                     <div class="col-md-4 checkright">
                         <div class="box">
+                            <p hidden id="jenisTransaksi">Driver</p>
                             <h5>Rincian harga</h5>
                             <table>
                                 <tr>
                                     <td class="first">
-                                        <h6>Harga Sewa</h6>
+                                        <h6>Harga Sewa Mobil</h6>
                                     </td>
                                     <td style="width: 5%;">:</td>
                                     <td class="second">
                                         <p>Rp <?= rupiah($rowMobil["harga"]) ?></p>
                                         <p hidden id="hargaSewa"> <?= $rowMobil["harga"] ?></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="first">
+                                        <h6>Tarif Driver</h6>
+                                    </td>
+                                    <td style="width: 5%;">:</td>
+                                    <td class="second">
+                                        <p>Rp <?= rupiah($rowDriver["tarif_driver"]) ?></p>
+                                        <p hidden id="tarifDriver"> <?= $rowDriver["tarif_driver"] ?></p>
                                     </td>
                                 </tr>
                                 <tr>
@@ -202,21 +226,21 @@
             echo "<script>alert('Silahkan pilih jenis sewa dan mobil terlebih dahulu')</script>";
             echo "<script>location='.?page=dashboard'</script>";
         }
+
         if (isset($_POST["sewa"])) {
             if (isset($_POST["checkboxperaturan"])) {
                 // id
                 $customer_id = $id_customer;
                 $id_mobil = $getIdMobil;
                 $id_admin = "ADM000";
-                $id_driver = "Tanpa Driver";
-                $jenis_transaksi = "lepas kunci";
+                $jenis_transaksi = "dengan driver";
                 // form
                 $berangkat = $_POST["berangkat"];
                 $kembali = $_POST["kembali"];
-                $daerah_tujuan = $_POST["daerah_tujuan"];
+                $daerah_tujuan = $_POST["wilayahtujuan"];
                 $keperluan = $_POST["keperluan"];
                 $harga_sewa = $_POST["hargasewa"];
-                $tarif_driver = 0;
+                $tarif_driver = $_POST["tarifdriver"];
                 $lama_sewa = $_POST["lamasewa"];
                 $dp = $_POST["dp"];
                 $total_harga = $_POST["totalharga"];
@@ -250,7 +274,7 @@
             }
         }
 ?>
-
+<script src="../assets/js/jquery.js"></script>
 <script type="text/javascript">
     // preview upload foto KK
     function readURLKK(uppembayaran) {

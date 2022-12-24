@@ -54,7 +54,7 @@
                         if ($_GET["jenis_sewa"] == "lepasKunci") {
                             $checkout = ".?page=checkoutLepasKunci&id_mobil=" . $row["id_mobil"];
                         } else if ($_GET["jenis_sewa"] == "denganDriver") {
-                            $checkout = ".?page=checkoutDenganDriver&id_mobil=" . $row["id_mobil"];
+                            $checkout = ".?page=pilihDriver&id_mobil=" . $row["id_mobil"];
                         } else {
                             echo "<script>alert('Silahkan pilih jenis sewa terlebih dahulu')</script>";
                             echo "<script>location='.?page=dashboard'</script>";
