@@ -34,8 +34,12 @@ function getDateNow(date = new Date()) {
 
 $(".hitungTotal").on('input', function () {
     var hargaSewa = document.getElementById('hargaSewa').innerHTML;
+    var tarifDriver = document.getElementById('tarifDriver').innerHTML;
+    var jenisTransaksi = document.getElementById('jenisTransaksi').innerHTML;
     hargaSewa = parseFloat(hargaSewa);
     console.info("harga sewa" + hargaSewa)
+    console.info("tarif sewa" + tarifDriver)
+    console.info("jenis sewa" + jenisTransaksi)
 
     // var qty = document.getElementById('qty').value;
     // qty = parseFloat(qty);
@@ -60,12 +64,28 @@ $(".hitungTotal").on('input', function () {
     let lamaSewa = hasildate / (1000 * 3600 * 24)
     lamaSewa = parseFloat(lamaSewa);
     console.info("hasil " + lamaSewa)
-
-    let totalSewa = hargaSewa * lamaSewa;
-    let dp = 25 / 100 * totalSewa;
-    let sisa = totalSewa - dp;
-    let hitungsekarang = dob1.getTime() - datesekarang.getTime();
-    let hitunglamasekarang = hitungsekarang / (1000 * 3600 * 24);
+    let totalSewa;
+    let dp;
+    let sisa;
+    let hitungsekarang;
+    let hitunglamasekarang;
+    if (jenisTransaksi == "Lepas") {
+        totalSewa = hargaSewa * lamaSewa;
+        dp = 25 / 100 * totalSewa;
+        sisa = totalSewa - dp;
+        hitungsekarang = dob1.getTime() - datesekarang.getTime();
+        hitunglamasekarang = hitungsekarang / (1000 * 3600 * 24);
+    } else if (jenisTransaksi == "Driver") {
+        totalTarifDriver = tarifDriver * lamaSewa;
+        totalHargaSewa = hargaSewa * lamaSewa;
+        totalSewa = totalTarifDriver + totalHargaSewa;
+        dp = 25 / 100 * totalSewa;
+        sisa = totalSewa - dp;
+        hitungsekarang = dob1.getTime() - datesekarang.getTime();
+        hitunglamasekarang = hitungsekarang / (1000 * 3600 * 24);
+    } else {
+        alert('Transaksi tidak diketahui')
+    }
     // console.info("hitung validasi" + hitungvalidasitanggal)
     if (lamaSewa <= 0) {
         alert("tanggal kembali tidak valid");
