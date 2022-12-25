@@ -105,6 +105,12 @@
 
                             $hari = $jarak / 60 / 60 / 24;
                             $biayaKeterlambatan = $row["harga_mobil"] * $hari;
+                            $biayaTambahanSopir = 0;
+                            if ($row["jenis_transaksi"] == "dengan driver") {
+                                $biayaTambahanSopir = $row["tarif_driver"] * $hari;
+                            } else {
+                                $biayaTambahanSopir = 0;
+                            }
                             // echo "opersi" . $hari;
                             // echo  $tglSekarang - $tglKembali;
                             // echo "</br>" . "kembali" . $tglKembali;
@@ -117,15 +123,24 @@
                                 $totalDenda = $denda * $hari;
                                 // echo "Denda" . rupiah($denda);
 
-                                $totalHarusBayar = $biayaKeterlambatan + $totalDenda + $row["sisa"];
-                                $totalHarga = $biayaKeterlambatan + $totalDenda + $row["total_harga"];
+                                $totalHarusBayar = $biayaKeterlambatan + $totalDenda + $row["sisa"] + $biayaTambahanSopir;
+                                $totalHarga = $biayaKeterlambatan + $totalDenda + $row["total_harga"] + $biayaTambahanSopir;
                                 $statusSewa = "Sewa Selesai (Terlambat)";
                             ?>
                                 <div class="alert alert-danger" style="padding: 18px 10px; margin-bottom: 5px;" role="alert">
                                     <p>Anda Telah <strong>Melebihi</strong> Dari Masa Sewa</p>
 
                                     <p>Keterlambatan : <b><?= $hari ?> (Hari)</b></p>
-                                    <p>Biaya keterlambatan : <b>Rp <?= rupiah($biayaKeterlambatan) ?></b></p>
+                                    <p>Biaya keterlambatan mobil : <b>Rp <?= rupiah($biayaKeterlambatan) ?></b></p>
+                                    <?php
+                                    if ($row["jenis_transaksi"] == "dengan driver") {
+                                    ?>
+                                        <p>Biaya tambahan sopir : <b>Rp <?= rupiah($biayaTambahanSopir) ?></b></p>
+                                    <?php
+                                    } else {
+                                        $biayaTambahanSopir = 0;
+                                    }
+                                    ?>
                                     <p>Denda perhari(10% total harga) : <b>Rp <?= rupiah($denda) ?></b></p>
                                     <p>Total denda : <b>Rp <?= rupiah($totalDenda) ?></b></p>
                                     <p>Sisa pembayaran : <b>Rp <?= rupiah($row["sisa"]) ?></b></p>

@@ -57,11 +57,11 @@
                                 </div>
                             </div>
                             <div class="col-md-6 mt-4">
-                                <label for="tujuan" class="form-label">Tarif Driver</label>
-                                <input type="number" value="<?= $rowDriver["tarif_driver"] ?>" name="tarifDriver" class="form-control" id="tarif" required autocomplete="off">
+                                <!-- <label for="tujuan" class="form-label">Tarif Driver</label> -->
+                                <input type="number" hidden value="<?= $rowDriver["tarif_driver"] ?>" name="tarifDriver" class="form-control" id="tarif" required autocomplete="off">
                             </div>
                             <div class="row mt-4">
-                                <div class="col-md-6 mb-4">
+                                <div class="col-md-6">
                                     <label for="berangkat" class="form-label">Berangkat</label>
                                     <input type="date" name="berangkat" class="form-control hitungTotal" id="berangkat" autofocus required autocomplete="off">
                                 </div>
@@ -74,33 +74,33 @@
                                     <label for="keperluan" class="form-label">Keperluan Penyewaan</label>
                                     <textarea name="keperluan" class="form-control" id="keperluan" required autocomplete="off" placeholder="Keperluan menyewa mobil lepas kunci"></textarea>
                                 </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="tujuan" class="form-label">Harga Sewa</label>
-                                    <input type="number" name="hargasewa" value="<?= $rowMobil["harga"] ?>" class="form-control" id="InHarga" required autocomplete="off">
+                                <div class="col-md-6">
+                                    <!-- <label for="tujuan" class="form-label">Harga Sewa</label> -->
+                                    <input type="number" hidden name="hargasewa" value="<?= $rowMobil["harga"] ?>" class="form-control" id="InHarga" required autocomplete="off">
                                 </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="tujuan" class="form-label">Tarif Driver</label>
-                                    <input type="number" name="tarifdriver" value="<?= $rowDriver["tarif_driver"] ?>" class="form-control" id="InHarga" required autocomplete="off">
+                                <div class="col-md-6">
+                                    <!-- <label for="tujuan" class="form-label">Tarif Driver</label> -->
+                                    <input type="number" hidden name="tarifdriver" value="<?= $rowDriver["tarif_driver"] ?>" class="form-control" id="InHarga" required autocomplete="off">
                                 </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="tujuan" class="form-label">Wilayah Tujuan</label>
-                                    <input type="text" name="wilayahtujuan" value="<?= $rowDriver["wilayah_tujuan"] ?>" class="form-control" id="InHarga" required autocomplete="off">
+                                <div class="col-md-6">
+                                    <!-- <label for="tujuan" class="form-label">Wilayah Tujuan</label> -->
+                                    <input type="text" hidden name="wilayahtujuan" value="<?= $rowDriver["wilayah_tujuan"] ?>" class="form-control" id="InHarga" required autocomplete="off">
                                 </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="tujuan" class="form-label">Lama sewa</label>
-                                    <input type="number" name="lamasewa" class="form-control" id="InLama" required autocomplete="off">
+                                <div class="col-md-6">
+                                    <!-- <label for="tujuan" class="form-label">Lama sewa</label> -->
+                                    <input type="number" hidden name="lamasewa" class="form-control" id="InLama" required autocomplete="off">
                                 </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="tujuan" class="form-label">Dp</label>
-                                    <input type="number" name="dp" class="form-control" id="InDp" required autocomplete="off">
+                                <div class="col-md-6">
+                                    <!-- <label for="tujuan" class="form-label">Dp</label> -->
+                                    <input type="number" hidden name="dp" class="form-control" id="InDp" required autocomplete="off">
                                 </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="tujuan" class="form-label">Total Harga</label>
-                                    <input type="number" name="totalharga" class="form-control" id="InTotal" required autocomplete="off">
+                                <div class="col-md-6">
+                                    <!-- <label for="tujuan" class="form-label">Total Harga</label> -->
+                                    <input type="number" hidden name="totalharga" class="form-control" id="InTotal" required autocomplete="off">
                                 </div>
-                                <div class="col-md-6 mb-4">
-                                    <label for="tujuan" class="form-label">Sisa</label>
-                                    <input type="number" name="sisa" class="form-control" id="InSisa" required autocomplete="off">
+                                <div class="col-md-6">
+                                    <!-- <label for="tujuan" class="form-label">Sisa</label> -->
+                                    <input type="number" hidden name="sisa" class="form-control" id="InSisa" required autocomplete="off">
                                 </div>
                                 <div class="col-12">
                                     <h6>Peraturan dan Tata Tertib </h6>
