@@ -26,7 +26,7 @@ if ($row["status_admin"] != "Pemilik") {
                     </a>
                 </form> -->
             </div>
-            <h4 class="page-title">Driver</h4>
+            <h4 class="page-title">Admin</h4>
         </div>
     </div>
 </div>
@@ -37,9 +37,9 @@ if ($row["status_admin"] != "Pemilik") {
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>id Admin</th>
+                    <th>ID Admin</th>
                     <th>Nama</th>
-                    <th>Hp/Telp</th>
+                    <th>No HP/Telp</th>
                     <th>Username</th>
                     <th>Status</th>
                     <th>Alamat</th>
