@@ -40,7 +40,7 @@ foreach ($customer as $row) :
                         <table>
                             <tr>
                                 <td class="first">
-                                    <h5>id Customer</h5>
+                                    <h5>ID Customer</h5>
                                 </td>
                                 <td class="second">
                                     <p>: <?= $row["id_customer"] ?></p>
@@ -88,7 +88,7 @@ foreach ($customer as $row) :
                             </tr>
                             <tr>
                                 <td class="first">
-                                    <h5>Telp (WA)</h5>
+                                    <h5>No Telp (WA)</h5>
                                 </td>
                                 <td>
                                     <p>: <?= $row["telp"] ?></p>
