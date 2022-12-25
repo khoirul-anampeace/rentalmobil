@@ -39,7 +39,7 @@ $id_admin = $huruf . sprintf("%03s", $urutan);
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="inputNama" class="form-label">Id Admin</label>
+                            <label for="inputNama" class="form-label">ID Admin</label>
                             <input type="text" value=" <?= $id_admin ?>" name="idAdmin" class="form-control" id="inputMerk" placeholder="" readonly required autocomplete="off">
                         </div>
                         <div class="col-md-6 mb-3">
@@ -47,7 +47,7 @@ $id_admin = $huruf . sprintf("%03s", $urutan);
                             <input type="text" name="nama" class="form-control" id="inputMerk" placeholder="Nama" autofocus required autocomplete="off">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="inputNama" class="form-label">Telphone/WA</label>
+                            <label for="inputNama" class="form-label">No Telp/WA</label>
                             <input type="text" name="telp" class="form-control" id="inputMerk" placeholder="" required autocomplete="off">
                         </div>
                         <div class="col-md-6 mb-3">
