@@ -26,17 +26,17 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>id Customer</th>
+                    <th>ID Customer</th>
                     <th>Nama Lengkap</th>
                     <th>Username</th>
                     <th>NIK</th>
-                    <th>Tgl Lahir</th>
+                    <th>Tanggal Lahir</th>
                     <th>Tempat Lahir</th>
                     <th>Jenis Kelamin</th>
-                    <th>Telp/Wa</th>
+                    <th>No Telp/Wa</th>
                     <th>Email</th>
                     <th>Alamat KTP</th>
-                    <th>ALamat Domisilir</th>
+                    <th>Alamat Domisili</th>
                     <!-- <th>Password</th>
             <th>Foto Ktp</th>
             <th>Foto Ktp & Wajah</th>
