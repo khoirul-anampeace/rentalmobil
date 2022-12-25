@@ -41,7 +41,7 @@ $id_mobil = $huruf . sprintf("%03s", $urutan);
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="inputNama" class="form-label">Merek Mobil</label>
-                            <input type="text" name="merk" class="form-control" id="inputMerk" placeholder="Nama Anda" autofocus required autocomplete="off">
+                            <input type="text" name="merk" class="form-control" id="inputMerk" placeholder="Merk Mobil" autofocus required autocomplete="off">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="inputjenis" class="form-label">Jenis Mobil</label>
@@ -62,35 +62,35 @@ $id_mobil = $huruf . sprintf("%03s", $urutan);
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="inputNama" class="form-label">No Rangka</label>
-                            <input type="text" name="norangka" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                            <input type="text" name="norangka" class="form-control" id="inputMerk" placeholder="No Rangka" required autocomplete="off">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="inputNama" class="form-label">No Mesin</label>
-                            <input type="text" name="nomesin" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                            <input type="text" name="nomesin" class="form-control" id="inputMerk" placeholder="No Mesin" required autocomplete="off">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="inputNama" class="form-label">Plat Nomor</label>
-                            <input type="text" name="noplat" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                            <input type="text" name="noplat" class="form-control" id="inputMerk" placeholder="Plat Nomor" required autocomplete="off">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="inputNama" class="form-label">Tahun Pembuatan</label>
-                            <input type="text" name="tahunbuat" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                            <input type="text" name="tahunbuat" class="form-control" id="inputMerk" placeholder="Tahun Pembuatan" required autocomplete="off">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="inputNama" class="form-label">BBM</label>
-                            <input type="text" name="bbm" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                            <input type="text" name="bbm" class="form-control" id="inputMerk" placeholder="Jenis BBM" required autocomplete="off">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="inputNama" class="form-label">Warna</label>
-                            <input type="text" name="warna" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                            <input type="text" name="warna" class="form-control" id="inputMerk" placeholder="Warna Mobil" required autocomplete="off">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="inputNama" class="form-label">Jumlah Kursi</label>
-                            <input type="text" name="jumlahkursi" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                            <input type="text" name="jumlahkursi" class="form-control" id="inputMerk" placeholder="Jumlah Kursi" required autocomplete="off">
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label for="inputNama" class="form-label">Harga</label>
-                            <input type="text" name="harga" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                            <label for="inputNama" class="form-label">Harga Sewa</label>
+                            <input type="text" name="harga" class="form-control" id="inputMerk" placeholder="Harga Sewa" required autocomplete="off">
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="inputNama" class="form-label">Foto Bagian Depan</label>
