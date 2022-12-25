@@ -28,8 +28,8 @@
                         <h4 class="header-title mb-3">ID MOBIL <?= $id_mobil ?></h4>
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="inputNama" class="form-label">Merek Mobil</label>
-                                <input type="text" value="<?= $row["merk"] ?>" name="merk" class="form-control" id="inputMerk" placeholder="Nama Anda" autofocus required autocomplete="off">
+                                <label for="inputNama" class="form-label">Merk Mobil</label>
+                                <input type="text" value="<?= $row["merk"] ?>" name="merk" class="form-control" id="inputMerk" placeholder="Merk Mobil" autofocus required autocomplete="off">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="inputjenis" class="form-label">Jenis Mobil</label>
@@ -50,38 +50,38 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="inputNama" class="form-label">No Rangka</label>
-                                <input type="text" value="<?= $row["no_rangka"] ?>" name="norangka" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                                <input type="text" value="<?= $row["no_rangka"] ?>" name="norangka" class="form-control" id="inputMerk" placeholder="No Rangka" required autocomplete="off">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="inputNama" class="form-label">No Mesin</label>
-                                <input type="text" value="<?= $row["no_mesin"] ?>" name="nomesin" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                                <input type="text" value="<?= $row["no_mesin"] ?>" name="nomesin" class="form-control" id="inputMerk" placeholder="No Mesin" required autocomplete="off">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="inputNama" class="form-label">Plat Nomor</label>
-                                <input type="text" value="<?= $row["no_plat"] ?>" name="noplat" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                                <input type="text" value="<?= $row["no_plat"] ?>" name="noplat" class="form-control" id="inputMerk" placeholder="Plat Nomor" required autocomplete="off">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="inputNama" class="form-label">Tahun Pembuatan</label>
-                                <input type="text" value="<?= $row["tahun_buat"] ?>" name="tahunbuat" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                                <input type="text" value="<?= $row["tahun_buat"] ?>" name="tahunbuat" class="form-control" id="inputMerk" placeholder="Tahun Pembuatan" required autocomplete="off">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="inputNama" class="form-label">BBM</label>
-                                <input type="text" value="<?= $row["bbm"] ?>" name="bbm" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                                <input type="text" value="<?= $row["bbm"] ?>" name="bbm" class="form-control" id="inputMerk" placeholder="Jenis BBM" required autocomplete="off">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="inputNama" class="form-label">Warna</label>
-                                <input type="text" value="<?= $row["warna"] ?>" name="warna" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                                <input type="text" value="<?= $row["warna"] ?>" name="warna" class="form-control" id="inputMerk" placeholder="Warna Mobil" required autocomplete="off">
                             </div>
                             <!-- <label for="inputNama" class="form-label">Status</label> -->
-                            <input type="text" hidden value="<?= $row["status_mobil"] ?>" name="status_mobil" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                            <input type="text" hidden value="<?= $row["status_mobil"] ?>" name="status_mobil" class="form-control" id="inputMerk" placeholder="Status Mobil" required autocomplete="off">
 
                             <div class="col-md-6 mb-3">
                                 <label for="inputNama" class="form-label">Jumlah Kursi</label>
-                                <input type="text" value="<?= $row["jumlah_kursi"] ?>" name="jumlahkursi" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                                <input type="text" value="<?= $row["jumlah_kursi"] ?>" name="jumlahkursi" class="form-control" id="inputMerk" placeholder="Jumlah Kursi" required autocomplete="off">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="inputNama" class="form-label">Harga</label>
-                                <input type="text" value="<?= $row["harga"] ?>" name="harga" class="form-control" id="inputMerk" placeholder="Nama Anda" required autocomplete="off">
+                                <label for="inputNama" class="form-label">Harga Sewa</label>
+                                <input type="text" value="<?= $row["harga"] ?>" name="harga" class="form-control" id="inputMerk" placeholder="Harga Sewa" required autocomplete="off">
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="inputNama" class="form-label">Catatan</label>
