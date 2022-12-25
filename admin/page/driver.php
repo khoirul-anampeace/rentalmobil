@@ -3,7 +3,7 @@
     <div class="col-12">
         <div class="page-title-box">
             <div class="page-title-right">
-                <a href=".?page=tambahDriver" class="btn btn-primary">Tambah Data Driver</a>
+                <a href=".?page=tambahDriver" class="btn btn-primary">Tambah Data Paket Driver</a>
                 <!-- <form class="d-flex">
                     <div class="input-group">
                         <input type="text" class="form-control form-control-light" id="dash-daterange">
@@ -16,7 +16,7 @@
                     </a>
                 </form> -->
             </div>
-            <h4 class="page-title">Driver</h4>
+            <h4 class="page-title">Paket Driver</h4>
         </div>
     </div>
 </div>
@@ -27,7 +27,7 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>id Driver</th>
+                    <th>ID Paket Driver</th>
                     <th>Wilayah Tujuan</th>
                     <th>Tarif Driver</th>
                     <th>Aksi</th>
