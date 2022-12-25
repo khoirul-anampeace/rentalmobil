@@ -158,7 +158,7 @@ if (isset($_SESSION["id_admin"])) {
                     <li class="side-nav-item">
                         <a href=".?page=driver" class="side-nav-link">
                             <i class="uil-users-alt"></i>
-                            <span>Driver</span>
+                            <span>Paket Driver</span>
                         </a>
                     </li>
                     <?php
