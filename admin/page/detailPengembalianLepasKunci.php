@@ -195,7 +195,7 @@ foreach ($transaksi as $row) :
                         <p>Total yang harus Dibayar : <b>Rp <?= rupiah($totalHarusBayar) ?></b></p>
                         <div class="mb-2">
                             <!-- <label for="inputNama" class="form-label">Denda</label> -->
-                            <input type="number" readonly value="<?= $totalDenda ?>" name="denda" class="form-control" id="inputMerk" autofocus autocomplete="off">
+                            <input type="number" hidden readonly value="<?= $totalDenda ?>" name="denda" class="form-control" id="inputMerk" autofocus autocomplete="off">
                         </div>
                         <!-- <div class="mb-2">
                             <label for="inputNama" class="form-label">Total Harga</label>

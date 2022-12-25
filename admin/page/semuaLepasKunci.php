@@ -40,6 +40,7 @@
                     <th>Total Harga</th>
                     <th>Denda</th>
                     <th>Status Transaksi</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
 
@@ -65,6 +66,9 @@
                         <td>Rp <?= rupiah($row["total_harga"]) ?></td>
                         <td>Rp <?= rupiah($row["denda"]) ?></td>
                         <td><?= $row["status_transaksi"] ?></td>
+                        <td>
+                            <a href=".?page=deleteTransaksi&id=<?= $row['id_transaksi'] ?>&hals=<?= "semuaDenganDriver" ?>&id_table=<?= "id_transaksi" ?>" class="btn btn-danger"> <i class="mdi mdi-delete"></i></a>
+                        </td>
                     </tr>
 
                 <?php $no++;

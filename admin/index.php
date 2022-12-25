@@ -34,7 +34,7 @@ if (isset($_SESSION["id_admin"])) {
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description">
     <meta content="Coderthemes" name="author">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/logomerpati_sm.png">
+    <link rel="shortcut icon" href="../assets/images/logomerpati_sm.png">
 
     <!-- third party css -->
     <link href="../assets/css/vendor/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css">
@@ -126,16 +126,22 @@ if (isset($_SESSION["id_admin"])) {
                         <div class="collapse" id="sidebarDashboards">
                             <ul class="side-nav-second-level">
                                 <li>
-                                    <a href=".?page=lepas-kunci">Transaksi Baru</a>
+                                    <a href=".?page=transaksiBaruDenganDriver">Transaksi Baru</a>
                                 </li>
                                 <li>
-                                    <a href="#">Pengembalian</a>
+                                    <a href=".?page=pengembalianDenganDriver">Pengembalian</a>
                                 </li>
                                 <li>
-                                    <a href="#">Semua Transaksi</a>
+                                    <a href=".?page=semuaDenganDriver">Semua Transaksi</a>
                                 </li>
                             </ul>
                         </div>
+                    </li>
+                    <li class="side-nav-item">
+                        <a href=".?page=semuaTransaksi" class="side-nav-link">
+                            <i class="uil-table"></i>
+                            <span>Semua Transaksi</span>
+                        </a>
                     </li>
                     <li class="side-nav-item">
                         <a href=".?page=customer" class="side-nav-link">
@@ -291,7 +297,10 @@ if (isset($_SESSION["id_admin"])) {
     <script src="../assets/js/app.min.js"></script>
 
     <!-- third party js -->
+    <!-- <script src="../assets/js/vendor/Chart.bundle.min.js"></script> -->
     <!-- <script src="assets/js/vendor/Chart.bundle.min.js"></script> -->
+    <script src="../assets/js/Chart.js"></script>
+    <script src="../assets/js/pages/demo.chartjs.js"></script>
     <script src="../assets/js/vendor/apexcharts.min.js"></script>
     <script src="../assets/js/vendor/jquery-jvectormap-1.2.2.min.js"></script>
     <script src="../assets/js/vendor/jquery-jvectormap-world-mill-en.js"></script>
