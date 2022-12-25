@@ -60,7 +60,7 @@ if (!empty($_SESSION['nik']) && !empty($_SESSION["jeniskelamin"]) && !empty($_SE
                 </div>
 
                 <div class="col-md-12 col-sm-6">
-                    <a href=".?pagedaftar=daftar-1" class="btn btn-secondary" name="batal">Kemabali</a>
+                    <a href=".?pagedaftar=daftar-1" class="btn btn-secondary" name="batal">Kembali</a>
                     <button class="btn btn-primary float-end" name="daftar2">Selanjutnya</button>
                 </div>
             </div>
