@@ -27,7 +27,7 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>id Mobil</th>
+                    <th>ID Mobil</th>
                     <th>Merk</th>
                     <th>Jenis</th>
                     <th>No Rangka</th>
