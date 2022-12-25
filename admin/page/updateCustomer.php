@@ -23,12 +23,12 @@ foreach ($customer as $row) :
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label for="inputNama" class="form-label">Id Customer</label>
+                                <label for="inputNama" class="form-label">ID Customer</label>
                                 <input type="text" value=" <?= $id_customer ?>" name="idAdmin" class="form-control" id="inputMerk" placeholder="" readonly required autocomplete="off">
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="inputNama" class="form-label">Nama Admin</label>
-                                <input type="text" value=" <?= $row["nama_lengkap"] ?>" name="nama" class="form-control" id="inputMerk" placeholder="Nama Driver" autofocus required autocomplete="off">
+                                <label for="inputNama" class="form-label">Nama Customer</label>
+                                <input type="text" value=" <?= $row["nama_lengkap"] ?>" name="nama" class="form-control" id="inputMerk" placeholder="Nama Customer" autofocus required autocomplete="off">
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="inputNama" class="form-label">Telphone/WA</label>
