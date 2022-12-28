@@ -19,7 +19,7 @@ foreach ($transaksi as $row) :
     }
 
     // pengecekan status_transaksi
-    if ($row["status_transaksi"] != "Menunggu Konfirmasi" && $row["status_transaksi"] != "Survei Lokasi") {
+    if ($row["status_transaksi"] != "Menunggu Konfirmasi" && $row["status_transaksi"] != "Telah Dipesan") {
         echo "<script>alert('Transaksi telah di proses')</script>";
         echo "<script>location='.?page=transaksiBaruLepasKunci'</script>";
     }
@@ -447,6 +447,12 @@ foreach ($transaksi as $row) :
                 $statusSewa = "Sedang Dalam Sewa";
                 $query2 = "UPDATE transaksi SET status_transaksi = '$statusSewa' WHERE id_transaksi = '$ambilID_transaksi'";
                 $send2 = mysqli_query($connect, $query2);
+
+                // Mobil
+                $id_mobil = $row["id_mobil"];
+                $status_mobil = "Beroperasi";
+                $query3 = "UPDATE mobil SET status_mobil = '$status_mobil' WHERE id_mobil = '$id_mobil'";
+                $send3 = mysqli_query($connect, $query3);
                 echo "<script>alert('Transaksi diterima')</script>";
                 echo "<script>location='.?page=pengembalianLepasKunci'</script>";
             } else {
@@ -460,8 +466,8 @@ foreach ($transaksi as $row) :
         $statusSewa = "Transaksi Ditolak";
         $query2 = "UPDATE transaksi SET status_transaksi = '$statusSewa' WHERE id_transaksi = '$ambilID_transaksi'";
         $send2 = mysqli_query($connect, $query2);
-        $query3 = "UPDATE mobil SET status_mobil = 'Tersedia' WHERE id_mobil = '$getIdMobil'";
-        $send3 = mysqli_query($connect, $query3);
+        // $query3 = "UPDATE mobil SET status_mobil = 'Tersedia' WHERE id_mobil = '$getIdMobil'";
+        // $send3 = mysqli_query($connect, $query3);
         echo "<script>confirm('Anda yakin ingin monolak transaksi?')</script>";
         echo "<script>location='.?page=transaksiLepasKunci'</script>";
     }
