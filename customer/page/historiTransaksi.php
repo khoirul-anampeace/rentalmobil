@@ -13,9 +13,13 @@
             } else {
                 foreach ($transaksiterbaru as $row) :
                     $statusSewa = $row['status_transaksi'];
-                    if ($statusSewa == "Survei Lokasi") {
+                    if ($statusSewa == "Telah Dipesan") {
                         // $statusSewa = "Menunggu konfirmasi";
-                        $statusSewa = "Silahkan menunggu, petugas kami akan melakukan survei ke rumah anda";
+                        if ($row["jenis_transaksi"] == "lepas kunci") {
+                            $statusSewa = "Silahkan tunggu, petugas kami akan melakukan survei ke rumah anda";
+                        } else if ($row["jenis_transaksi"] == "dengan driver") {
+                            $statusSewa = "Silahkan tunggu, transaksi anda sedang diperiksa";
+                        }
                     } else if ($statusSewa == "Menunggu Konfirmasi") {
                         $statusSewa = "Menunggu Konfirmasi";
                     }
