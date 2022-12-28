@@ -86,6 +86,36 @@
                 </div>
                 <h5 class="mt-5">Catatan</h5>
                 <p><?= $row["catatan"] ?></p>
+                <?php
+
+                $cekTransaksi =  mysqli_query($connect, "SELECT t.tgl_berangkat, t.tgl_kembali FROM transaksi t JOIN mobil m ON t.id_mobil = m.id_mobil WHERE t.id_mobil = '$getIdMobil' AND t.status_transaksi = 'Telah Dipesan'");
+                $rowcekTransaksi = mysqli_fetch_array($cekTransaksi);
+                if (mysqli_num_rows($cekTransaksi) != 0) {
+                ?>
+                    <div class="ps-3 pe-3">
+                        <h5>Status Mobil</h5>
+                        <div class="alert alert-warning alert-dismissible fade show p-3" role="alert">
+                            Mobil telah dipesan pada tanggal
+                            <br>
+                            <strong>
+                                <?php
+
+                                $rowTransaksi = query("SELECT t.tgl_berangkat, t.tgl_kembali FROM transaksi t JOIN mobil m ON t.id_mobil = m.id_mobil WHERE t.id_mobil = '$getIdMobil' AND t.status_transaksi = 'Telah Dipesan'");
+                                foreach ($rowTransaksi as $viewTransaksiTgl) {
+                                    echo "(" . date("d-m-Y", strtotime($viewTransaksiTgl["tgl_berangkat"])) . " sampai " . date("d-m-Y", strtotime($viewTransaksiTgl["tgl_kembali"])) . ") <br>";
+                                }
+                                // while ($r = mysqli_fetch_assoc($cekTransaksi)) {
+                                //     echo $r["tgl_berangkat"] . " sampai " . $r["tgl_kembali"];
+                                // } 
+                                ?>
+                            </strong>
+                            Anda tidak dapat menyewa mobil ini pada tanggal tersebut
+                            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
             <?php endforeach; ?>
         </div>
     </div>

@@ -48,6 +48,16 @@
                         <h5 class="titleTransaksi"><?= $row["warna"] ?></h5>
                         <h5 class="titleTransaksi"> <?= $row["no_plat"] ?></h5>
                         <h5 class="titleTransaksi"> <?= $row["status_transaksi"] ?></h5>
+                        <?php
+                        if ($row["jenis_transaksi"] == "dengan driver") {
+                            $jenisTransaksi = "Dengan Driver";
+                        } else if ($row["jenis_transaksi"] == "lepas kunci") {
+                            $jenisTransaksi = "Lepas Kunci";
+                        } else {
+                            $jenisTransaksi = "Jenis Transaksi error";
+                        }
+                        ?>
+                        <h5 class="titleTransaksi"> <?= $jenisTransaksi ?></h5>
                     </div>
                     <div class="col-md-2 button-detailmobil">
                         <?php
@@ -56,7 +66,7 @@
                         echo '<img class="barcode" src="data:image/png;base64,' . base64_encode($generator->getBarcode($transaksi_code, $generator::TYPE_CODE_128)) . '">';
 
                         // check untuk button
-                        if ($row["status_transaksi"] == "Menunggu Konfirmasi" ||  $row["status_transaksi"] == "Survei Lokasi") {
+                        if ($row["status_transaksi"] == "Menunggu Konfirmasi" ||  $row["status_transaksi"] == "Telah Dipesan") {
                         ?>
                             <form method="POST">
                                 <button style="width: 100%;" name="batalkan" class="btn btn-danger float-end">Batalkan</button>
@@ -169,7 +179,7 @@
                     ?>
                     <h5 class="mt-3">Detail </h5>
                     <?php
-                    if ($row["status_transaksi"] == "Survei Lokasi" || $row["status_transaksi"] == "Menunggu Konfirmasi") {
+                    if ($row["status_transaksi"] == "Telah Dipesan" || $row["status_transaksi"] == "Menunggu Konfirmasi") {
                     ?>
                         <div class="col-md-6 text-detailTransaksi">
                             <table>
