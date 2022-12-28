@@ -32,6 +32,9 @@
             $id_customer = $_SESSION["id_customer"];
             $customer = mysqli_query($connect, "SELECT * FROM customer WHERE id_customer = '$id_customer'");
             $rowCustomer = mysqli_fetch_array($customer);
+
+            $cekTransaksi =  mysqli_query($connect, "SELECT t.tgl_berangkat, t.tgl_kembali FROM transaksi t JOIN mobil m ON t.id_mobil = m.id_mobil WHERE t.id_mobil = '$getIdMobil' AND t.status_transaksi = 'Telah Dipesan'");
+            $rowcekTransaksi = mysqli_fetch_array($cekTransaksi);
         ?>
             <form method="POST" enctype="multipart/form-data">
                 <div class="row checkoutlepaskunci">
@@ -52,6 +55,30 @@
                                     <h6><?= $rowMobil["warna"] ?></h6>
                                 </div>
                             </div>
+                            <!-- nanti kasih kodnisi dulu habis itu pake perulangan -->
+                            <?php
+                            if (mysqli_num_rows($cekTransaksi) != 0) {
+                            ?>
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    Mobil telah dipesan pada tanggal
+                                    <br>
+                                    <strong>
+                                        <?php
+                                        $rowTransaksi = query("SELECT t.tgl_berangkat, t.tgl_kembali FROM transaksi t JOIN mobil m ON t.id_mobil = m.id_mobil WHERE t.id_mobil = '$getIdMobil' AND t.status_transaksi = 'Telah Dipesan'");
+                                        foreach ($rowTransaksi as $viewTransaksiTgl) {
+                                            echo "(" . date("d-m-Y", strtotime($viewTransaksiTgl["tgl_berangkat"])) . " sampai " . date("d-m-Y", strtotime($viewTransaksiTgl["tgl_kembali"])) . ") <br>";
+                                        }
+                                        // while ($r = mysqli_fetch_assoc($cekTransaksi)) {
+                                        //     echo $r["tgl_berangkat"] . " sampai " . $r["tgl_kembali"];
+                                        // } 
+                                        ?>
+                                    </strong>
+                                    Anda tidak dapat menyewa mobil ini pada tanggal tersebut
+                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                                </div>
+                            <?php
+                            }
+                            ?>
                             <div class="row mt-4">
                                 <div class="col-md-6 mb-4">
                                     <label for="berangkat" class="form-label">Berangkat</label>
@@ -206,47 +233,48 @@
         }
         if (isset($_POST["sewa"])) {
             if (isset($_POST["checkboxperaturan"])) {
-                // id
-                $customer_id = $id_customer;
-                $id_mobil = $getIdMobil;
-                $id_admin = "ADM000";
-                $id_driver = "Tanpa Driver";
-                $jenis_transaksi = "lepas kunci";
-                // form
-                $berangkat = $_POST["berangkat"];
-                $kembali = $_POST["kembali"];
-                $daerah_tujuan = $_POST["daerah_tujuan"];
-                $keperluan = $_POST["keperluan"];
-                $harga_sewa = $_POST["hargasewa"];
-                $tarif_driver = 0;
-                $lama_sewa = $_POST["lamasewa"];
-                $dp = $_POST["dp"];
-                $total_harga = $_POST["totalharga"];
-                $sisa = $_POST["sisa"];
-                $status_transaksi = "Menunggu Konfirmasi";
-                $catatan = "belum ada";
-                $denda = 0;
-                // mobil
-                $status_mobil = "Beroperasi";
-                // foto
-                $namaBuktiBayar = $id_transaksi . "_fotoBuktiPembayaran_";
-                $fotoBayar = upload($namaBuktiBayar, "buktibayar", "transaksi");
-                if (!$fotoBayar) {
-                    return false;
-                }
-                // insert
-                $query1 = "INSERT INTO transaksi 
+                if ($_POST["berangkat"]) {
+                    // id
+                    $customer_id = $id_customer;
+                    $id_mobil = $getIdMobil;
+                    $id_admin = "ADM000";
+                    $id_driver = "Tanpa Driver";
+                    $jenis_transaksi = "lepas kunci";
+                    // form
+                    $berangkat = $_POST["berangkat"];
+                    $kembali = $_POST["kembali"];
+                    $daerah_tujuan = $_POST["daerah_tujuan"];
+                    $keperluan = $_POST["keperluan"];
+                    $harga_sewa = $_POST["hargasewa"];
+                    $tarif_driver = 0;
+                    $lama_sewa = $_POST["lamasewa"];
+                    $dp = $_POST["dp"];
+                    $total_harga = $_POST["totalharga"];
+                    $sisa = $_POST["sisa"];
+                    $status_transaksi = "Menunggu Konfirmasi";
+                    $catatan = "belum ada";
+                    $denda = 0;
+                    // mobil
+                    // $status_mobil = "Beroperasi";
+                    // foto
+                    $namaBuktiBayar = $id_transaksi . "_fotoBuktiPembayaran_";
+                    $fotoBayar = upload($namaBuktiBayar, "buktibayar", "transaksi");
+                    if (!$fotoBayar) {
+                        return false;
+                    }
+                    // insert
+                    $query1 = "INSERT INTO transaksi 
                  VALUES('$id_transaksi', '$id_admin', '$id_mobil', '$id_customer', '$id_driver', '$jenis_transaksi', '$berangkat', '$kembali', '$lama_sewa', '$daerah_tujuan', '$keperluan', '$status_transaksi', '$catatan')
              ";
-                $send1 =  mysqli_query($connect, $query1);
-                $query2 = "INSERT INTO pembayaran 
+                    $send1 =  mysqli_query($connect, $query1);
+                    $query2 = "INSERT INTO pembayaran 
                  VALUES('', '$id_transaksi', '$harga_sewa',  '$tarif_driver', '$dp', '$total_harga', '$sisa', '$fotoBayar', '$denda')
              ";
-                $send2 = mysqli_query($connect, $query2);
-                $query3 = "UPDATE mobil SET status_mobil = '$status_mobil' WHERE id_mobil = '$id_mobil'";
-                $send3 = mysqli_query($connect, $query3);
-                echo "<script>alert('Transaksi berhasil, silahkan menunggu konfirmasi dari pihak kami')</script>";
-                echo "<script>location='.?page=dashboard'</script>";
+                    $send2 = mysqli_query($connect, $query2);
+
+                    echo "<script>alert('Transaksi berhasil, silahkan menunggu konfirmasi dari pihak kami')</script>";
+                    echo "<script>location='.?page=dashboard'</script>";
+                }
             } else {
                 echo "<script>alert('Silahkan baca dan centang pernjanjian')</script>";
             }

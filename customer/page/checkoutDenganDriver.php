@@ -35,7 +35,12 @@
 
             $id_driver = $_GET["id_driver"];
             $driver = mysqli_query($connect, "SELECT * FROM driver WHERE id_driver = '$id_driver'");
-            $rowDriver = mysqli_fetch_array($driver)
+            $rowDriver = mysqli_fetch_array($driver);
+
+
+            $cekTransaksi =  mysqli_query($connect, "SELECT t.tgl_berangkat, t.tgl_kembali FROM transaksi t JOIN mobil m ON t.id_mobil = m.id_mobil WHERE t.id_mobil = '$getIdMobil' AND t.status_transaksi = 'Telah Dipesan'");
+            $rowcekTransaksi = mysqli_fetch_array($cekTransaksi);
+
         ?>
             <form method="POST" enctype="multipart/form-data">
                 <div class="row checkoutlepaskunci">
@@ -56,6 +61,29 @@
                                     <h6><?= $rowMobil["warna"] ?></h6>
                                 </div>
                             </div>
+                            <?php
+                            if (mysqli_num_rows($cekTransaksi) != 0) {
+                            ?>
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    Mobil telah dipesan pada tanggal
+                                    <br>
+                                    <strong>
+                                        <?php
+                                        $rowTransaksi = query("SELECT t.tgl_berangkat, t.tgl_kembali FROM transaksi t JOIN mobil m ON t.id_mobil = m.id_mobil WHERE t.id_mobil = '$getIdMobil' AND t.status_transaksi = 'Telah Dipesan'");
+                                        foreach ($rowTransaksi as $viewTransaksiTgl) {
+                                            echo "(" . date("d-m-Y", strtotime($viewTransaksiTgl["tgl_berangkat"])) . " sampai " . date("d-m-Y", strtotime($viewTransaksiTgl["tgl_kembali"])) . ") <br>";
+                                        }
+                                        // while ($r = mysqli_fetch_assoc($cekTransaksi)) {
+                                        //     echo $r["tgl_berangkat"] . " sampai " . $r["tgl_kembali"];
+                                        // } 
+                                        ?>
+                                    </strong>
+                                    Anda tidak dapat menyewa mobil ini pada tanggal tersebut
+                                    <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                                </div>
+                            <?php
+                            }
+                            ?>
                             <div class="col-md-6 mt-4">
                                 <!-- <label for="tujuan" class="form-label">Tarif Driver</label> -->
                                 <input type="number" hidden value="<?= $rowDriver["tarif_driver"] ?>" name="tarifDriver" class="form-control" id="tarif" required autocomplete="off">
@@ -249,7 +277,7 @@
                 $catatan = "belum ada";
                 $denda = 0;
                 // mobil
-                $status_mobil = "Beroperasi";
+                // $status_mobil = "Beroperasi";
                 // foto
                 $namaBuktiBayar = $id_transaksi . "_fotoBuktiPembayaran_";
                 $fotoBayar = upload($namaBuktiBayar, "buktibayar", "transaksi");
