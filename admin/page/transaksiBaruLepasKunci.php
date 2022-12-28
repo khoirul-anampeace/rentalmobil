@@ -47,7 +47,7 @@
             </thead>
 
             <?php
-            $transaksi = query("SELECT t.*, p.*, m.*, c.* FROM transaksi t JOIN pembayaran p ON t.id_transaksi = p.id_transaksi JOIN mobil m ON t.id_mobil = m.id_mobil JOIN customer c ON t.id_customer = c.id_customer WHERE t.jenis_transaksi = 'lepas kunci' AND (t.status_transaksi = 'Menunggu Konfirmasi' OR t.status_transaksi = 'Survei Lokasi') ORDER BY t.id_transaksi DESC");
+            $transaksi = query("SELECT t.*, p.*, m.*, c.* FROM transaksi t JOIN pembayaran p ON t.id_transaksi = p.id_transaksi JOIN mobil m ON t.id_mobil = m.id_mobil JOIN customer c ON t.id_customer = c.id_customer WHERE t.jenis_transaksi = 'lepas kunci' AND (t.status_transaksi = 'Menunggu Konfirmasi' OR t.status_transaksi = 'Telah Dipesan') ORDER BY t.id_transaksi DESC");
             $no = 1;
             foreach ($transaksi as $row) :
             ?>

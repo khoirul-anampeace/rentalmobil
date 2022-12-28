@@ -71,7 +71,7 @@
                         <td>Rp <?= rupiah($row["dp"]) ?></td>
                         <td>Rp <?= rupiah($row["sisa"]) ?></td>
                         <td class="table-action">
-                            <a href=".?page=detailTransaksiDenganDriver&id_transaksi=<?= $row['id_transaksi'] ?>" class="btn btn-primary">Konfirmasi</i></a>
+                            <a href=".?page=konfirmasiDenganDriver&id_transaksi=<?= $row['id_transaksi'] ?>" class="btn btn-primary">Konfirmasi</i></a>
                             <!-- <a href=".?page=updateMobil&id_mobil=<?= $row['id_mobil'] ?>" class="action-icon"> <i class="mdi mdi-pencil"></i></a> -->
                             <!-- <a href=".?page=deleteLepasKunci&id=<?= $row['id_transaksi'] ?>&table=<?= "transaksi" ?>&id_table=<?= "id_transaksi" ?>" class="btn btn-danger"> <i class="mdi mdi-delete"></i></a> -->
                         </td>
