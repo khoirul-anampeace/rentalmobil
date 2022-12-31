@@ -29,6 +29,11 @@
             $mobil = mysqli_query($connect, "SELECT * FROM mobil JOIN kondisi_mobil ON mobil.id_mobil = kondisi_mobil.id_mobil WHERE mobil.id_mobil = '$getIdMobil'");
             $rowMobil = mysqli_fetch_array($mobil);
 
+            // pengecekan mobil apakah telah dipesan
+            // if ($rowMobil["status_mobil"] == "Beroperasi") {
+            //     echo "<script>alert('Perhatikan tanggal sewa!')</script>";
+            // }
+
             $id_customer = $_SESSION["id_customer"];
             $customer = mysqli_query($connect, "SELECT * FROM customer WHERE id_customer = '$id_customer'");
             $rowCustomer = mysqli_fetch_array($customer);
@@ -60,7 +65,7 @@
                             if (mysqli_num_rows($cekTransaksi) != 0) {
                             ?>
                                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    Mobil telah dipesan pada tanggal
+                                    <i class="fa-regular fa-brake-warning"></i> Mobil telah dipesan pada tanggal
                                     <br>
                                     <strong>
                                         <?php
@@ -73,6 +78,7 @@
                                         // } 
                                         ?>
                                     </strong>
+                                    <hr>
                                     Anda tidak dapat menyewa mobil ini pada tanggal tersebut
                                     <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
                                 </div>
@@ -119,15 +125,14 @@
                                 <div class="col-12">
                                     <h6>Peraturan dan Tata Tertib </h6>
                                     <ol>
-                                        <li>Jika melewati batas sewa yang telah ditentukan tersebut dalam nota, maka 10 jam sebelumnya pelanggan harus meminta persetujuan perpanjangan sewa pada MERPATI Rent a car. Jika tidak meminta persetujuan diwajibkan membayar kompensasi sebesar seperempat dari harga sewa perhari</li>
-                                        <li>Terlambat mengembalikan mobil dari waktu yang ditentukan akan dikenakan Charge Overtime (kelebihan jam) sebesar sepuluh persen harga sewa perhari dikalikan jumlah jam keterlambatan</li>
+                                        <li>Jika melewati batas sewa yang telah ditentukan tersebut dalam nota, maka diwajibkan membayar kompensasi sebesar sepuluh persen dari harga sewa perhari dan membayar sebanyak hari keterlambatan</li>
                                         <li>Jika karena suatu hal pelanggan tidak dapat membayar biaya sewa mobil maksimal tiga hari setelah mobil kembali, pelanggan harus memberikan jaminan yang nilainya minimal dua kali dari jumlah tanggungan</li>
                                         <li>Jika menyewa mobil tanpa sopir di Merpati Rent a Car, segala bentuk resiko yang terjadi selama membawa mobil yang diakibatkan oleh kecelakaan, kelalaian, kecerobohan, kerusuhan, kehilangan, pencurian, penggelapan dan bencana alam, maka pelanggan harus mengganti 100% (Seratus Persen) sejumlah kerugian yang terjadi</li>
                                         <li>Selama proses pergantian dan atau perbaikan mobil yang dimaksud point empat, pelanggan dikenakan biaya sewa penuh sebesar harga sewa harian</li>
                                         <li>Jika karena suatu hal pelanggan bisa mengganti kerugian, maka pelanggan harus memberikan jaminan barang yang nilainya dua kali dari jumlah tanggungan</li>
                                         <li>Jika pelanggan masih menggunakan mobil Merpati Rent a Car tapi masih belum membayar biaya sewa lebih dari dua hari, maka pelanggan yang bersangkutan harus mengembalikan mobil yang disewa pada Merpati Rent a Car</li>
                                         <li>Jika pada saat pengembalian mobil ada bagian atau perlengkapan mobil yang hilang atau rusak tidak sesuai denan waktu membawa, maka pelanggan harus mengganti 100% (Seratus Persen) sesuai dengan kerugian yang terjadi</li>
-                                        <li>Pelanggan harus mengisi dan menanda tangani surat perjanjian yang ditulis sendiri oleh pelanggan sehubungan setuju tidaknya dengan peraturan dan tata tertib yang berlaku di Merpati Rent a Car</li>
+                                        <li> Pelanggan harus mengisi dan menanda tangani surat perjanjian yang ditulis sendiri oleh pelanggan sehubungan setuju tidaknya dengan peraturan dan tata tertib yang berlaku di Merpati Rent a Car</li>
                                         <li>Pelanggan dilarang keras memindah tangankan atau menggadaikan atau menjual mobil sewa</li>
                                     </ol>
                                     <div class="flexnih">
@@ -214,12 +219,12 @@
                                 </div>
                             </div>
                             <?php
-                            require("barcode.php");
-                            $transaksi_code = $id_transaksi . "_" . $getIdMobil . "_" . $rowCustomer["nama_lengkap"];
-                            echo '<img class="barcode" src="data:image/png;base64,' . base64_encode($generator->getBarcode($transaksi_code, $generator::TYPE_CODE_128)) . '">';
+                            // require("barcode.php");
+                            // $transaksi_code = $id_transaksi . "_" . $getIdMobil . "_" . $rowCustomer["nama_lengkap"];
+                            // echo '<img class="barcode" src="data:image/png;base64,' . base64_encode($generator->getBarcode($transaksi_code, $generator::TYPE_CODE_128)) . '">';
                             ?>
                             <!-- <img class="barcode" src="../assets/images/code39.png" alt=""> -->
-                            <button name="sewa" class="btn btn-primary">SEWA</button>
+                            <button name="sewa" class="btn btn-primary mt-2">SEWA</button>
                         </div>
                     </div>
                 </div>
@@ -233,47 +238,52 @@
         }
         if (isset($_POST["sewa"])) {
             if (isset($_POST["checkboxperaturan"])) {
-                if ($_POST["berangkat"]) {
-                    // id
-                    $customer_id = $id_customer;
-                    $id_mobil = $getIdMobil;
-                    $id_admin = "ADM000";
-                    $id_driver = "Tanpa Driver";
-                    $jenis_transaksi = "lepas kunci";
-                    // form
-                    $berangkat = $_POST["berangkat"];
-                    $kembali = $_POST["kembali"];
-                    $daerah_tujuan = $_POST["daerah_tujuan"];
-                    $keperluan = $_POST["keperluan"];
-                    $harga_sewa = $_POST["hargasewa"];
-                    $tarif_driver = 0;
-                    $lama_sewa = $_POST["lamasewa"];
-                    $dp = $_POST["dp"];
-                    $total_harga = $_POST["totalharga"];
-                    $sisa = $_POST["sisa"];
-                    $status_transaksi = "Menunggu Konfirmasi";
-                    $catatan = "belum ada";
-                    $denda = 0;
-                    // mobil
-                    // $status_mobil = "Beroperasi";
-                    // foto
-                    $namaBuktiBayar = $id_transaksi . "_fotoBuktiPembayaran_";
-                    $fotoBayar = upload($namaBuktiBayar, "buktibayar", "transaksi");
-                    if (!$fotoBayar) {
-                        return false;
-                    }
-                    // insert
-                    $query1 = "INSERT INTO transaksi 
-                 VALUES('$id_transaksi', '$id_admin', '$id_mobil', '$id_customer', '$id_driver', '$jenis_transaksi', '$berangkat', '$kembali', '$lama_sewa', '$daerah_tujuan', '$keperluan', '$status_transaksi', '$catatan')
-             ";
-                    $send1 =  mysqli_query($connect, $query1);
-                    $query2 = "INSERT INTO pembayaran 
-                 VALUES('', '$id_transaksi', '$harga_sewa',  '$tarif_driver', '$dp', '$total_harga', '$sisa', '$fotoBayar', '$denda')
-             ";
-                    $send2 = mysqli_query($connect, $query2);
+                if ($rowMobil["status_mobil"] != "Beroperasi") {
+                    if ($_POST["berangkat"]) {
+                        // id
+                        $customer_id = $id_customer;
+                        $id_mobil = $getIdMobil;
+                        $id_admin = "ADM000";
+                        $id_driver = "Tanpa Driver";
+                        $jenis_transaksi = "lepas kunci";
+                        // form
+                        $berangkat = $_POST["berangkat"];
+                        $kembali = $_POST["kembali"];
+                        $daerah_tujuan = $_POST["daerah_tujuan"];
+                        $keperluan = $_POST["keperluan"];
+                        $harga_sewa = $_POST["hargasewa"];
+                        $tarif_driver = 0;
+                        $lama_sewa = $_POST["lamasewa"];
+                        $dp = $_POST["dp"];
+                        $total_harga = $_POST["totalharga"];
+                        $sisa = $_POST["sisa"];
+                        $status_transaksi = "Menunggu Konfirmasi";
+                        $catatan = "belum ada";
+                        $denda = 0;
+                        // mobil
+                        // $status_mobil = "Beroperasi";
+                        // foto
+                        $namaBuktiBayar = $id_transaksi . "_fotoBuktiPembayaran_";
+                        $fotoBayar = upload($namaBuktiBayar, "buktibayar", "transaksi");
+                        if (!$fotoBayar) {
+                            return false;
+                        }
+                        // insert
+                        $query1 = "INSERT INTO transaksi 
+                     VALUES('$id_transaksi', '$id_admin', '$id_mobil', '$id_customer', '$id_driver', '$jenis_transaksi', '$berangkat', '$kembali', '$lama_sewa', '$daerah_tujuan', '$keperluan', '$status_transaksi', '$catatan')
+                 ";
+                        $send1 =  mysqli_query($connect, $query1);
+                        $query2 = "INSERT INTO pembayaran 
+                     VALUES('', '$id_transaksi', '$harga_sewa',  '$tarif_driver', '$dp', '$total_harga', '$sisa', '$fotoBayar', '$denda')
+                 ";
+                        $send2 = mysqli_query($connect, $query2);
 
-                    echo "<script>alert('Transaksi berhasil, silahkan menunggu konfirmasi dari pihak kami')</script>";
-                    echo "<script>location='.?page=dashboard'</script>";
+                        echo "<script>alert('Transaksi berhasil, silahkan menunggu konfirmasi dari pihak kami')</script>";
+                        echo "<script>location='.?page=dashboard'</script>";
+                    }
+                } else {
+                    echo "<script>alert('Ups mobil ini sedang dalam masa sewa pelanggan lain, silahkan pilih mobil lain')</script>";
+                    echo "<script>location='.?page=pilihMobil&jenis_sewa=lepasKunci'</script>";
                 }
             } else {
                 echo "<script>alert('Silahkan baca dan centang pernjanjian')</script>";
