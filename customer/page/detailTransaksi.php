@@ -61,9 +61,9 @@
                     </div>
                     <div class="col-md-2 button-detailmobil">
                         <?php
-                        require("barcode.php");
-                        $transaksi_code = $getIdTransaksi . "_" . $row["merk"] . "_" . $row["nama_lengkap"];
-                        echo '<img class="barcode" src="data:image/png;base64,' . base64_encode($generator->getBarcode($transaksi_code, $generator::TYPE_CODE_128)) . '">';
+                        // require("barcode.php");
+                        // $transaksi_code = $getIdTransaksi . "_" . $row["merk"] . "_" . $row["nama_lengkap"];
+                        // echo '<img class="barcode" src="data:image/png;base64,' . base64_encode($generator->getBarcode($transaksi_code, $generator::TYPE_CODE_128)) . '">';
 
                         // check untuk button
                         if ($row["status_transaksi"] == "Menunggu Konfirmasi" ||  $row["status_transaksi"] == "Telah Dipesan") {
