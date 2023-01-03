@@ -64,7 +64,7 @@
                             <?php
                             if (mysqli_num_rows($cekTransaksi) != 0) {
                             ?>
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert">
                                     <i class="fa-regular fa-brake-warning"></i> Mobil telah dipesan pada tanggal
                                     <br>
                                     <strong>

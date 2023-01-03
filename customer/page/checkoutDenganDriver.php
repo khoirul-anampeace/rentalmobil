@@ -69,7 +69,7 @@
                             <?php
                             if (mysqli_num_rows($cekTransaksi) != 0) {
                             ?>
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert">
                                     <i class="fa-regular fa-brake-warning"></i> Mobil telah dipesan pada tanggal
                                     <br>
                                     <strong>
@@ -105,6 +105,10 @@
                                 </div>
 
                                 <div class="col-md-12 mb-4">
+                                    <label for="tujuan" class="form-label">Wilayah Tujuan</label>
+                                    <input type="text" readonly name="wilayahtujuan" value="<?= $rowDriver["wilayah_tujuan"] ?>" class="form-control" id="InHarga" required autocomplete="off">
+                                </div>
+                                <div class="col-md-12 mb-4">
                                     <label for="keperluan" class="form-label">Keperluan Penyewaan</label>
                                     <textarea name="keperluan" class="form-control" id="keperluan" required autocomplete="off" placeholder="Keperluan menyewa mobil lepas kunci"></textarea>
                                 </div>
@@ -115,10 +119,6 @@
                                 <div class="col-md-6">
                                     <!-- <label for="tujuan" class="form-label">Tarif Driver</label> -->
                                     <input type="number" hidden name="tarifdriver" value="<?= $rowDriver["tarif_driver"] ?>" class="form-control" id="InHarga" required autocomplete="off">
-                                </div>
-                                <div class="col-md-6">
-                                    <!-- <label for="tujuan" class="form-label">Wilayah Tujuan</label> -->
-                                    <input type="text" hidden name="wilayahtujuan" value="<?= $rowDriver["wilayah_tujuan"] ?>" class="form-control" id="InHarga" required autocomplete="off">
                                 </div>
                                 <div class="col-md-6">
                                     <!-- <label for="tujuan" class="form-label">Lama sewa</label> -->

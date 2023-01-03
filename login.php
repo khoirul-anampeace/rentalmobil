@@ -73,6 +73,7 @@ if (isset($_POST['login'])) {
                             Remember Me
                         </label> -->
                         <button name="login" class="btn btn-primary mb-3">LOGIN</button>
+                        <p>Lupa Password ? <a href="" onclick="alert('Silahkan hubungi whatsaap admin kami 082228008055 dengan format nik_gantipassword untuk mereset password anda')">Klik disini</a></p>
                         <p>Belum punya akun? </p>
                         <a href="daftar/index.php"" class=" btn btn-secondary">REGISTER</a>
                     </form>
